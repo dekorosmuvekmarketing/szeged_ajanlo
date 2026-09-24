@@ -1,0 +1,2933 @@
+<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Dekoros Művek szegedi ajánlója a távolabbról érkező ügyfeleknek. Közlekedés, éttermek, kávézók, programok, rendelés és taxi egy helyen." name="description"/>
+<title>Amíg járművén dolgozunk | Szegedi ajánló</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+
+<style>
+
+    :root {
+      --ink: #17212b;
+      --muted: #66727f;
+      --paper: #f7f5f1;
+      --white: #ffffff;
+      --navy: #17324d;
+      --blue: #246b87;
+      --teal: #2c8b7b;
+      --gold: #e1a83b;
+      --orange: #d86d3c;
+      --rose: #b9505f;
+      --shadow: 0 18px 45px rgba(23, 50, 77, .12);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(225,168,59,.10), transparent 30%),
+        radial-gradient(circle at 100% 10%, rgba(44,139,123,.10), transparent 30%),
+        var(--paper);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(247,245,241,.88);
+      border-bottom: 1px solid rgba(23,50,77,.08);
+    }
+    .topbar-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      box-shadow: 0 8px 22px rgba(23,50,77,.18);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(23,50,77,.14);
+      border-radius: 12px;
+      background: white;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--navy);
+      transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .2s ease;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display:none; }
+    .nav a {
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    .nav a:hover { background: white; color: var(--navy); }
+    .nav-icon { margin-right: 6px; }
+
+    .hero {
+      padding: 76px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset: 24px max(16px, calc((100vw - var(--max))/2)) 0;
+      border-radius: 34px;
+      background:
+        linear-gradient(120deg, rgba(23,50,77,.82), rgba(36,107,135,.78) 58%, rgba(44,139,123,.74)),
+        url("https://images.unsplash.com/photo-1564664820619-3c14639e9eae?auto=format&fit=crop&w=1800&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+    .hero-grid {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 46px;
+      padding: 58px;
+      color: white;
+    }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .83rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+    }
+    h1, h2, h3 { line-height: 1.12; margin-top: 0; }
+    h1 { font-size: clamp(2.5rem, 6vw, 5.4rem); letter-spacing: -.055em; margin: 20px 0; max-width: 760px; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.22rem); color: rgba(255,255,255,.88); max-width: 720px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+
+    .wrap-scene {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      margin-top: 20px;
+    }
+    .wrap-scene .ws-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 460 / 240;
+      max-height: 240px;
+    }
+    .wrap-scene .ws-mono {
+      filter: brightness(0) invert(1) drop-shadow(0 6px 14px rgba(0,0,0,.5));
+      -webkit-filter: brightness(0) invert(1) drop-shadow(0 6px 14px rgba(0,0,0,.5));
+    }
+    .wrap-scene .ws-color {
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.5));
+      -webkit-filter: drop-shadow(0 6px 14px rgba(0,0,0,.5));
+    }
+    .wrap-scene .ws-check {
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,.35));
+    }
+    .wrap-scene .ws-van {
+      position: absolute;
+      width: 46%;
+      left: 6%;
+      top: 30%;
+      animation: wsVan 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .wrap-scene .ws-roll {
+      position: absolute;
+      width: 22%;
+      left: 30%;
+      top: 6%;
+      transform-origin: 20% 20%;
+      opacity: 0;
+      animation: wsRoll 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .wrap-scene .ws-hand {
+      position: absolute;
+      width: 26%;
+      left: 34%;
+      top: 30%;
+      opacity: 0;
+      animation: wsHand 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .wrap-scene .ws-van-red {
+      position: absolute;
+      width: 46%;
+      left: 6%;
+      top: 30%;
+      opacity: 0;
+      animation: wsVanRed 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .wrap-scene .ws-bolt {
+      position: absolute;
+      width: 46%;
+      height: 40%;
+      left: 6%;
+      top: 30%;
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 0%;
+      pointer-events: none;
+      animation: wsVanRed 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .wrap-scene .ws-logo-text {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: .05em;
+      font-size: 20px;
+      color: #ffd500;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+      white-space: nowrap;
+      animation: wsLogoCounter 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    @keyframes wsLogoCounter {
+      0%, 82%  { transform: translateY(10px) scaleX(1); }
+      83%,100% { transform: translateY(10px) scaleX(-1); }
+    }
+    .wrap-scene .ws-check {
+      position: absolute;
+      width: 32%;
+      left: 40%;
+      top: 8%;
+      opacity: 0;
+      animation: wsCheck 9s cubic-bezier(.34,1.56,.64,1) infinite;
+    }
+    .wrap-scene .ws-check-path {
+      stroke-dasharray: 112;
+      stroke-dashoffset: 112;
+      animation: wsCheckDraw 9s cubic-bezier(.65,0,.35,1) infinite;
+    }
+    @keyframes wsVan {
+      0%   { transform: translateX(-140%); opacity: 0; }
+      11%  { transform: translateX(0); opacity: 1; }
+      52%  { transform: translateX(0); opacity: 1; }
+      58%  { transform: translateX(0); opacity: 0; }
+      100% { transform: translateX(0); opacity: 0; }
+    }
+    @keyframes wsRoll {
+      0%, 16%  { opacity: 0; transform: translate(60px,-70px) rotate(-35deg); }
+      28%      { opacity: 1; transform: translate(6px,4px) rotate(-14deg); }
+      48%      { opacity: 1; transform: translate(6px,4px) rotate(-14deg); }
+      58%,100% { opacity: 0; transform: translate(6px,-30px) rotate(8deg); }
+    }
+    @keyframes wsHand {
+      0%, 34%  { opacity: 0; transform: translate(80px,70px) rotate(14deg); }
+      44%      { opacity: 1; transform: translate(4px,2px) rotate(0deg); }
+      54%      { opacity: 1; transform: translate(4px,2px) rotate(0deg); }
+      60%,100% { opacity: 0; transform: translate(80px,70px) rotate(14deg); }
+    }
+    @keyframes wsVanRed {
+      0%, 54%  { opacity: 0; transform: translateX(0) scaleX(1) scale(.92); }
+      60%      { opacity: 1; transform: translateX(0) scaleX(1) scale(1); }
+      76%      { opacity: 1; transform: translateX(0) scaleX(1) scale(1); }
+      80%      { opacity: 1; transform: translateX(0) scaleX(.15) scale(1); }
+      83%      { opacity: 1; transform: translateX(0) scaleX(-1) scale(1); }
+      90%      { opacity: 1; transform: translateX(-220%) scaleX(-1) scale(1); }
+      91%      { opacity: 0; transform: translateX(-220%) scaleX(-1) scale(1); }
+      100%     { opacity: 0; transform: translateX(-220%) scaleX(-1) scale(1); }
+    }
+    @keyframes wsCheck {
+      0%, 59%  { opacity: 0; transform: scale(.7); }
+      60%      { opacity: 1; transform: scale(1); }
+      66%      { opacity: 1; transform: scale(1.06); }
+      70%      { opacity: 1; transform: scale(1); }
+      79%      { opacity: 1; transform: scale(1); }
+      80%      { opacity: 0; transform: scale(.8); }
+      100%     { opacity: 0; transform: scale(.8); }
+    }
+    @keyframes wsCheckDraw {
+      0%, 60%  { stroke-dashoffset: 112; }
+      70%      { stroke-dashoffset: 0; }
+      100%     { stroke-dashoffset: 0; }
+    }
+    @media (max-width: 560px) {
+      .wrap-scene { max-width: 300px; }
+      .wrap-scene .ws-logo-text { font-size: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wrap-scene .ws-van, .wrap-scene .ws-hand, .wrap-scene .ws-roll, .wrap-scene .ws-check, .wrap-scene .ws-van-red {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .wrap-scene .ws-check-path {
+        animation: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+      .wrap-scene .ws-van-red, .wrap-scene .ws-roll, .wrap-scene .ws-hand { display: none !important; }
+    }
+
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height: 46px;
+      padding: 11px 16px;
+      border:0;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+      cursor:pointer;
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .btn-primary { background: linear-gradient(135deg, #ffffff, #eef3f6); color: var(--navy); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+    .btn-primary:hover { box-shadow: 0 16px 34px rgba(0,0,0,.2); }
+    .btn-ghost { background: rgba(255,255,255,.12); color:white; border:1px solid rgba(255,255,255,.22); }
+    .btn-dark { background: linear-gradient(135deg, var(--blue), var(--navy)); color:white; box-shadow: 0 10px 24px rgba(23,50,77,.28); }
+    .btn-dark:hover { box-shadow: 0 16px 32px rgba(23,50,77,.36); }
+    .btn-soft { background: #edf3f5; color: var(--navy); }
+    .btn-call { background: linear-gradient(135deg, #ffd65c, #e1a83b); color:#2d210c; box-shadow: 0 10px 24px rgba(225,168,59,.35); }
+    .btn-call:hover { box-shadow: 0 16px 32px rgba(225,168,59,.45); }
+
+    .hero-card {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(16px);
+    }
+    .hero-card h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    .hero-facts { display:grid; gap:12px; }
+    .hero-fact { display:flex; gap:12px; align-items:flex-start; }
+    .hero-fact span:first-child { font-size:1.25rem; }
+    .hero-fact small { display:block; color:rgba(255,255,255,.72); }
+
+    section { padding: 72px 0; }
+    .section-head {
+      display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px;
+    }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing:-.04em; margin-bottom:8px; }
+    .section-head p { margin:0; max-width:720px; color:var(--muted); }
+    .kicker { color:var(--teal); font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:.82rem; }
+
+    .quick-grid {
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:12px;
+      margin-top:-10px;
+      position:relative;
+      z-index:4;
+    }
+    .quick {
+      background:white;
+      border:1px solid rgba(23,50,77,.07);
+      border-radius:18px;
+      box-shadow:0 10px 24px rgba(23,50,77,.08);
+      padding:17px 12px;
+      text-align:center;
+      text-decoration:none;
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .quick:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color: rgba(36,107,135,.35); }
+    .quick .icon { display:block; font-size:1.6rem; margin-bottom:5px; transition: transform .2s ease; }
+    .quick:hover .icon { transform: scale(1.14); }
+
+    .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; }
+    .grid.two { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .card {
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(23,50,77,.08);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 16px 36px rgba(23,50,77,.14);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      transition:.28s cubic-bezier(.22,.61,.36,1);
+    }
+    .card:hover { transform:translateY(-7px); box-shadow: 0 26px 52px rgba(23,50,77,.22); }
+    .card-visual {
+      min-height:150px;
+      padding:22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      background:linear-gradient(135deg, #eaf4f2, #dce8ee);
+      position:relative;
+      overflow:hidden;
+    }
+    .card-visual::after {
+      content:"";
+      position:absolute;
+      width:170px; height:170px;
+      border-radius:50%;
+      right:-55px; bottom:-85px;
+      background:rgba(255,255,255,.48);
+    }
+    .card-visual.food {
+      background:
+        linear-gradient(rgba(255,240,223,.82), rgba(248,210,189,.82)),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .card-visual.cafe {
+      background:
+        linear-gradient(rgba(244,235,227,.84), rgba(230,210,194,.84)),
+        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .card-visual.fun {
+      background:
+        linear-gradient(rgba(230,238,251,.76), rgba(204,223,246,.76)),
+        url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
+    .card-visual.delivery {
+      background:
+        linear-gradient(rgba(235,246,231,.84), rgba(207,233,198,.84)),
+        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .card-icon { font-size:3.2rem; position:relative; z-index:2; }
+    .badge {
+      position:relative; z-index:2;
+      display:inline-flex; align-items:center; gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.82);
+      font-size:.77rem;
+      font-weight:900;
+      color:var(--navy);
+    }
+    .card-body { padding:22px; display:flex; flex-direction:column; flex:1; }
+    .card h3 { font-size:1.36rem; margin-bottom:7px; letter-spacing:-.02em; }
+    .subtitle { color:var(--teal); font-weight:800; margin:0 0 12px; }
+    .card p { color:var(--muted); margin:0 0 18px; }
+    .meta {
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:auto; margin-bottom:15px;
+    }
+    .meta span {
+      font-size:.8rem;
+      font-weight:800;
+      background:#f1f4f5;
+      color:#4c5b67;
+      border-radius:999px;
+      padding:6px 9px;
+    }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; }
+    .actions .btn { min-height:40px; padding:9px 12px; border-radius:12px; font-size:.86rem; }
+
+    .transport {
+      background:linear-gradient(135deg,var(--navy),#244e70);
+      color:white;
+      border-radius:32px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .transport .grid { margin-top:20px; }
+    .transport-card {
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:20px;
+      padding:22px;
+    }
+    .transport-card p { color:rgba(255,255,255,.76); }
+    .transport-card .btn-soft { background:white; }
+
+    .filterbar {
+      display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px;
+    }
+    .filter {
+      border:1px solid rgba(23,50,77,.12);
+      background:white;
+      color:var(--navy);
+      border-radius:999px;
+      padding:9px 13px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .filter.active { background:var(--navy); color:white; }
+
+    .taxi {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:30px;
+      align-items:center;
+      background:linear-gradient(135deg,#f8c94c,#e8a929);
+      color:#2d210c;
+      border-radius:30px;
+      padding:36px;
+      box-shadow:var(--shadow);
+    }
+    .taxi h2 { margin-bottom:8px; font-size:clamp(2rem,4vw,3.1rem); }
+    .taxi p { margin:0; max-width:700px; }
+    .taxi-actions { display:flex; flex-wrap:wrap; gap:10px; }
+
+    .map-box {
+      border-radius:30px;
+      min-height:370px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:40px;
+      background:
+        linear-gradient(rgba(23,50,77,.84),rgba(23,50,77,.84)),
+        repeating-linear-gradient(45deg,#d7e5e7 0 18px,#e7efef 18px 36px);
+      color:white;
+      box-shadow:var(--shadow);
+    }
+    .map-box p { max-width:700px; color:rgba(255,255,255,.8); }
+
+    .notice {
+      margin-top:30px;
+      padding:18px 20px;
+      border-radius:16px;
+      background:#fff7df;
+      color:#6b5520;
+      border:1px solid #f1dfaa;
+      font-size:.92rem;
+    }
+    footer { padding:54px 0; background:#12283c; color:white; margin-top:70px; }
+    footer p { color:rgba(255,255,255,.68); max-width:760px; }
+    .footer-grid { display:grid; grid-template-columns:1.4fr .6fr; gap:30px; align-items:end; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
+    .footer-links a { color:white; text-decoration:none; border:1px solid rgba(255,255,255,.16); padding:9px 12px; border-radius:12px; }
+
+    .to-top {
+      position:fixed;
+      right:auto; bottom:auto;
+      width:auto; height:46px; padding:0 16px;
+      border-radius:16px;
+      border:0;
+      background:var(--navy);
+      color:white;
+      font-size:1rem; gap:8px; display:inline-flex; align-items:center;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      opacity:0;
+      pointer-events:none;
+      transition:.2s ease;
+      z-index:99;
+    }
+    .to-top.show { opacity:1; pointer-events:auto; }
+
+    
+    section{
+      position:relative;
+    }
+    #programok::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.90),rgba(255,255,255,.90)),
+        url('https://images.unsplash.com/photo-1564664820619-3c14639e9eae?auto=format&fit=crop&w=1800&q=80') center/cover fixed;
+      z-index:-1;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns:1fr; padding:42px 34px; min-height:auto; }
+      .hero-card { max-width:650px; }
+      .quick-grid { grid-template-columns:repeat(3,1fr); }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .taxi { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr; }
+      .footer-links { justify-content:flex-start; }
+    }
+    @media (max-width: 720px) {
+      .topbar-inner { align-items:flex-start; flex-direction:column; padding:10px 0; }
+      .nav { width:100%; padding-bottom:2px; }
+      .hero { padding-top:20px; }
+      .hero::before { inset:8px 8px 0; border-radius:24px; }
+      .hero-grid { padding:36px 24px; }
+      h1 { font-size:clamp(2.4rem,12vw,4rem); }
+      .quick-grid { grid-template-columns:repeat(2,1fr); }
+      .grid, .grid.two { grid-template-columns:1fr; }
+      section { padding:54px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; }
+      .taxi { padding:26px; }
+      .transport { padding:22px; }
+    }
+    @media print {
+      .topbar, .to-top, .filterbar { display:none !important; }
+      body { background:white; }
+      .hero { padding:0; }
+      .hero::before { inset:0; box-shadow:none; }
+      .hero-grid { min-height:360px; }
+      section { padding:28px 0; break-inside:avoid; }
+      .card { box-shadow:none; break-inside:avoid; }
+      .btn { border:1px solid #bbb; }
+    }
+  
+
+  /* ===== dekoros-brand-overrides ===== */
+    :root {
+      --ink: #162250;
+      --muted: #5f6680;
+      --paper: #f5f7fc;
+      --white: #ffffff;
+      --navy: #20377f;
+      --blue: #2859c8;
+      --light-blue: #37aef1;
+      --pale-blue: #e8f2ff;
+      --teal: #2c69d6;
+      --gold: #f4b942;
+      --shadow: 0 20px 55px rgba(27, 48, 117, .16);
+      --radius: 24px;
+    }
+
+    body {
+      font-family: "Montserrat", Arial, sans-serif;
+      background:
+        linear-gradient(rgba(247,249,255,.96), rgba(247,249,255,.96)),
+        url("images/dekor-textura.jpg") center top / 100% auto fixed;
+      color: var(--ink);
+    }
+
+    h1, h2, h3, h4, .btn, .nav a, .filter, .badge, .kicker {
+      font-family: "Montserrat", Arial, sans-serif;
+    }
+
+    h1, h2, h3 { font-weight: 800; }
+    p { font-weight: 500; }
+
+    .topbar {
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(32,55,127,.10);
+      box-shadow: 0 8px 30px rgba(32,55,127,.07);
+    }
+    .brand { min-width: 260px; gap: 16px; }
+    .brand-logo {
+      width: 220px;
+      height: auto;
+      display: block;
+    }
+    .brand-label {
+      border-left: 1px solid rgba(32,55,127,.18);
+      padding-left: 14px;
+      color: var(--navy);
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .brand-mark { display:none; }
+
+    .nav a {
+      color: #53618c;
+      font-size: .86rem;
+    }
+    .nav a:hover {
+      background: var(--pale-blue);
+      color: var(--navy);
+    }
+
+    .hero {
+      padding-top: 54px;
+    }
+    .hero::before {
+      background:
+        linear-gradient(112deg, rgba(15,35,91,.96) 0%, rgba(32,55,127,.91) 42%, rgba(37,92,203,.78) 72%, rgba(53,174,241,.62) 100%),
+        url("images/dekor-textura.jpg") center / cover;
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 24px max(16px, calc((100vw - var(--max))/2)) 0;
+      border-radius: 34px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 82% 30%, rgba(255,255,255,.14), transparent 23%),
+        linear-gradient(90deg, transparent 38%, rgba(39,131,255,.16));
+    }
+    .hero-grid { position: relative; z-index: 2; }
+    .hero-logo {
+      display: block;
+      width: min(470px, 88%);
+      height: auto;
+      margin: 0 0 24px;
+      filter: drop-shadow(0 9px 18px rgba(0,0,0,.14));
+    }
+    .hero h1 {
+      font-weight: 900;
+      max-width: 880px;
+    }
+    .hero p { font-weight: 500; }
+    .hero-card {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    .eyebrow {
+      background: rgba(255,255,255,.13);
+      font-weight: 800;
+    }
+
+    .quick {
+      border: 1px solid rgba(32,55,127,.10);
+      color: var(--navy);
+    }
+    .quick:hover {
+      background: linear-gradient(145deg, #fff, #edf4ff);
+      box-shadow: 0 18px 40px rgba(32,55,127,.15);
+    }
+
+    .kicker { color: var(--blue); }
+    .section-head h2 { color: var(--navy); }
+
+    .card {
+      border: 1px solid rgba(32,55,127,.10);
+      box-shadow: 0 18px 40px rgba(32,55,127,.14);
+      background: rgba(255,255,255,.96);
+    }
+    .card:hover {
+      box-shadow: 0 28px 58px rgba(32,55,127,.22);
+    }
+    .card-visual {
+      min-height: 188px;
+      isolation: isolate;
+      background-position: center !important;
+      background-size: cover !important;
+    }
+    .card-visual::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      z-index: -1;
+      background: inherit;
+      background-position: center;
+      background-size: cover;
+      filter: blur(1.5px);
+      transform: scale(1.035);
+      transition: transform .45s ease;
+    }
+    .card:hover .card-visual::before { transform: scale(1.08); }
+    .card-visual::after {
+      width: 100%;
+      height: 100%;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      background: linear-gradient(135deg, rgba(21,39,98,.10), rgba(25,61,150,.38));
+      z-index: 0;
+    }
+    .card-icon, .badge { z-index: 2; }
+    .card-icon {
+      filter: drop-shadow(0 5px 12px rgba(0,0,0,.20));
+    }
+    .badge {
+      background: rgba(255,255,255,.92);
+      color: var(--navy);
+      box-shadow: 0 7px 20px rgba(0,0,0,.10);
+    }
+
+    .card-visual.food {
+      background:
+        linear-gradient(rgba(24,43,104,.17), rgba(24,43,104,.40)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    .card-visual.cafe {
+      background:
+        linear-gradient(rgba(24,43,104,.12), rgba(24,43,104,.34)),
+        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    .card-visual.delivery {
+      background:
+        linear-gradient(rgba(24,43,104,.12), rgba(24,43,104,.34)),
+        url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    .card-visual.fun {
+      background:
+        linear-gradient(rgba(24,43,104,.15), rgba(24,43,104,.42)),
+        url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+
+    /* Egyedi programképek */
+    #programok .card:nth-child(1) .card-visual {
+      background:
+        linear-gradient(rgba(24,43,104,.18), rgba(24,43,104,.48)),
+        url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    #programok .card:nth-child(2) .card-visual,
+    #programok .card:nth-child(6) .card-visual {
+      background:
+        linear-gradient(rgba(24,43,104,.13), rgba(24,43,104,.38)),
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    #programok .card:nth-child(3) .card-visual {
+      background:
+        linear-gradient(rgba(24,43,104,.16), rgba(24,43,104,.40)),
+        url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    #programok .card:nth-child(4) .card-visual {
+      background:
+        linear-gradient(rgba(24,43,104,.18), rgba(24,43,104,.43)),
+        url("https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+    #programok .card:nth-child(5) .card-visual {
+      background:
+        linear-gradient(rgba(10,17,48,.15), rgba(10,17,48,.48)),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=84") center / cover;
+    }
+
+    #programok::before {
+      background:
+        linear-gradient(rgba(245,248,255,.91), rgba(245,248,255,.95)),
+        url("images/dekor-textura.jpg") center / cover fixed;
+    }
+
+    .transport {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(118deg, rgba(22,42,105,.96), rgba(38,83,188,.90)),
+        url("images/dekor-textura.jpg") center / cover;
+    }
+    .section-watermark {
+      position: absolute;
+      right: -55px;
+      bottom: -75px;
+      width: 310px;
+      opacity: .075;
+      pointer-events: none;
+    }
+    .transport-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.20);
+    }
+
+    .btn {
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    .btn-dark {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+    }
+    .btn-soft {
+      background: var(--pale-blue);
+      color: var(--navy);
+    }
+    .btn-call {
+      background: var(--gold);
+    }
+    .filter.active {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+    }
+
+    .taxi {
+      background:
+        linear-gradient(110deg, rgba(29,52,129,.96), rgba(40,89,200,.90)),
+        url("images/dekor-textura.jpg") center / cover;
+      color: white;
+    }
+    .taxi .kicker { color: #dce8ff !important; }
+    .taxi p { color: rgba(255,255,255,.82); }
+    .taxi .btn-primary { color: var(--navy); }
+
+    .map-box {
+      background:
+        linear-gradient(rgba(21,41,104,.88), rgba(31,67,161,.88)),
+        url("images/dekor-textura.jpg") center / cover;
+    }
+
+    footer {
+      background:
+        linear-gradient(110deg, rgba(14,30,82,.97), rgba(31,60,145,.94)),
+        url("images/dekor-textura.jpg") center / cover;
+    }
+    .footer-logo {
+      width: min(430px, 86%);
+      height: auto;
+      margin-bottom: 24px;
+    }
+
+    .notice {
+      background: #eef4ff;
+      border-color: #cadbff;
+      color: #354a83;
+    }
+
+    .to-top {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+    }
+
+    @media (max-width: 920px) {
+      .brand-logo { width: 185px; }
+      .brand-label { display:none; }
+    }
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .brand { min-width: 0; }
+      .brand-logo { width: 175px; }
+      .nav { order: 3; }
+      .hero::after { inset: 8px 8px 0; }
+      .hero-logo { width: 92%; }
+      .card-visual { min-height: 170px; }
+    }
+  
+
+  /* ===== uploaded-photo-overrides ===== */
+  .hero::before {
+    background:
+      linear-gradient(112deg, rgba(15,35,91,.93) 0%, rgba(32,55,127,.88) 42%, rgba(37,92,203,.68) 72%, rgba(53,174,241,.48) 100%),
+      url("images/hero-hatter.jpg") center 45% / cover !important;
+  }
+
+  .card-visual {
+    background-position: center !important;
+    background-size: cover !important;
+  }
+  .card-visual::after {
+    background:
+      linear-gradient(135deg, rgba(26,44,109,.30), rgba(25,62,154,.58)),
+      linear-gradient(to top, rgba(12,25,70,.32), transparent 62%) !important;
+  }
+
+  #restaurantGrid .card:nth-child(1) .card-visual { background-image: url("images/etterem-01.jpg") !important; }
+  #restaurantGrid .card:nth-child(2) .card-visual { background-image: url("images/etterem-02.jpg") !important; }
+  #restaurantGrid .card:nth-child(3) .card-visual { background-image: url("images/etterem-03.jpg") !important; }
+  #restaurantGrid .card:nth-child(4) .card-visual { background-image: url("images/etterem-04.jpg") !important; }
+  #restaurantGrid .card:nth-child(5) .card-visual { background-image: url("images/etterem-05.jpg") !important; }
+  #restaurantGrid .card:nth-child(6) .card-visual { background-image: url("images/etterem-06.jpg") !important; }
+  #restaurantGrid .card:nth-child(7) .card-visual { background-image: url("images/etterem-07.jpg") !important; }
+  #restaurantGrid .card:nth-child(8) .card-visual { background-image: url("images/etterem-08.jpg") !important; }
+  #restaurantGrid .card:nth-child(9) .card-visual { background-image: url("images/etterem-09.jpg") !important; }
+
+  #kavezok .card:nth-child(1) .card-visual { background-image: url("images/kavezo-01.jpg") !important; }
+  #kavezok .card:nth-child(2) .card-visual { background-image: url("images/kavezo-02.jpg") !important; }
+  #kavezok .card:nth-child(3) .card-visual { background-image: url("images/kavezo-03.jpg") !important; }
+  #restaurantGrid .card:nth-child(10) .card-visual { background-image: url("images/kavezo-01.jpg") !important; }
+  #restaurantGrid .card:nth-child(11) .card-visual { background-image: url("images/kavezo-02.jpg") !important; }
+  #restaurantGrid .card:nth-child(12) .card-visual { background-image: url("images/kavezo-03.jpg") !important; }
+
+  #rendeles .card:nth-child(1) .card-visual { background-image: url("images/rendeles-01.jpg") !important; }
+  #rendeles .card:nth-child(2) .card-visual { background-image: url("images/rendeles-02.jpg") !important; }
+  #rendeles .card:nth-child(3) .card-visual { background-image: url("images/rendeles-03.jpg") !important; }
+
+  #programok .card:nth-child(1) .card-visual { background-image: url("images/program-01.jpg") !important; }
+  #programok .card:nth-child(2) .card-visual { background-image: url("images/hero-hatter.jpg") !important; }
+  #programok .card:nth-child(3) .card-visual { background-image: url("images/program-02.jpg") !important; }
+  #programok .card:nth-child(4) .card-visual { background-image: url("images/program-03.jpg") !important; }
+  #programok .card:nth-child(5) .card-visual { background-image: url("images/program-04.jpg") !important; }
+  #programok .card:nth-child(6) .card-visual { background-image: url("images/program-05.jpg") !important; }
+  #programok .card:nth-child(7) .card-visual { background-image: url("images/erzsebeti-liget.jpg") !important; background-position: center 55% !important; }
+  #programok .card:nth-child(8) .card-visual { background-image: url("images/muzeum-mora-ferenc.jpg") !important; background-position: center 42% !important; }
+
+  .taxi {
+    position: relative;
+    overflow: hidden;
+    background: #FFD002 !important;
+    color: #111111 !important;
+  }
+  .taxi::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    bottom: -65px;
+    width: 290px;
+    height: 190px;
+    opacity: .08;
+    background:
+      radial-gradient(circle at 34% 72%, #111 0 10%, transparent 11%),
+      radial-gradient(circle at 73% 72%, #111 0 10%, transparent 11%),
+      linear-gradient(155deg, transparent 37%, #111 38% 52%, transparent 53%);
+    transform: rotate(-5deg);
+    pointer-events: none;
+  }
+  .taxi > * { position: relative; z-index: 2; }
+  .taxi .kicker, .taxi h2, .taxi p { color: #111111 !important; }
+  .taxi p { opacity: .82; }
+  .taxi-logo-placeholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 230px;
+    min-height: 70px;
+    margin-bottom: 16px;
+    padding: 12px 20px;
+    border: 2px dashed rgba(17,17,17,.38);
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -.03em;
+    background: rgba(255,255,255,.24);
+  }
+  .taxi .btn-dark {
+    background: #111111 !important;
+    color: #ffffff !important;
+  }
+  .taxi .btn-primary {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  /* ===== final-touch-overrides ===== */
+  .quick-grid {
+    gap: 16px;
+    padding: 18px;
+    border-radius: 26px;
+    background: rgba(255,255,255,.82);
+    border: 1px solid rgba(41,82,185,.14);
+    box-shadow: 0 18px 44px rgba(32,55,127,.12);
+    backdrop-filter: blur(14px);
+  }
+  .quick {
+    min-height: 108px;
+    border: 2px solid #2D5BFF !important;
+    color: #20377f !important;
+    background: linear-gradient(145deg, #ffffff, #f4f7ff) !important;
+    box-shadow:
+      0 12px 28px rgba(32,55,127,.12),
+      inset 0 0 0 1px rgba(255,255,255,.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  }
+  .quick .icon {
+    font-size: 2rem !important;
+    margin-bottom: 8px;
+  }
+  .quick:hover {
+    transform: translateY(-6px);
+    background: linear-gradient(135deg, #20377f, #2D5BFF) !important;
+    color: #ffffff !important;
+    box-shadow: 0 20px 42px rgba(32,55,127,.24);
+  }
+
+  .taxi-plusz-logo {
+    display: block;
+    width: min(470px, 92%);
+    height: auto;
+    margin: 0 0 18px;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,.12));
+  }
+
+  #programok .card:nth-child(2) .card-visual {
+    background-image: url("images/program-06.jpg") !important;
+    background-position: center 54% !important;
+  }
+
+  @media (max-width: 720px) {
+    .quick-grid {
+      padding: 12px;
+      gap: 12px;
+    }
+    .quick {
+      min-height: 96px;
+      padding: 14px 8px;
+      font-size: .86rem;
+    }
+    .quick .icon {
+      font-size: 1.75rem !important;
+    }
+    .taxi-plusz-logo {
+      width: min(390px, 100%);
+    }
+  }
+
+  /* ===== guide-filter-and-info-updates ===== */
+  .anchor-offset {
+    display: block;
+    position: relative;
+    top: -90px;
+    visibility: hidden;
+  }
+
+  .filterbar {
+    gap: 10px !important;
+    align-items: center;
+  }
+
+  .filter {
+    border-width: 2px !important;
+    font-weight: 800 !important;
+    box-shadow: 0 8px 18px rgba(31, 53, 126, .10);
+    transition: transform .2s ease, box-shadow .2s ease, color .2s ease, background .2s ease !important;
+  }
+
+  .filter:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(31, 53, 126, .16);
+  }
+
+  .filter[data-filter="all"] {
+    --filter-color: #2d5bff;
+    border-color: #2d5bff !important;
+    color: #244bcf !important;
+    background: #eef3ff !important;
+  }
+
+  .filter[data-filter="near"] {
+    --filter-color: #299a63;
+    border-color: #299a63 !important;
+    color: #187546 !important;
+    background: #ebf9f1 !important;
+  }
+
+  .filter[data-filter="international"] {
+    --filter-color: #eb8a1d;
+    border-color: #eb8a1d !important;
+    color: #b35e00 !important;
+    background: #fff4e5 !important;
+  }
+
+  .filter[data-filter="hungarian"] {
+    --filter-color: #d44848;
+    border-color: #d44848 !important;
+    color: #a82d2d !important;
+    background: #fff0f0 !important;
+  }
+
+  .filter[data-filter="fish"] {
+    --filter-color: #1694ae;
+    border-color: #1694ae !important;
+    color: #08768e !important;
+    background: #eaf9fc !important;
+  }
+
+  .filter[data-filter="dessert"] {
+    --filter-color: #d75b9b;
+    border-color: #d75b9b !important;
+    color: #aa3473 !important;
+    background: #fff0f7 !important;
+  }
+
+  .filter[data-filter="coffee"] {
+    --filter-color: #8b603f;
+    border-color: #8b603f !important;
+    color: #70452a !important;
+    background: #f8f0ea !important;
+  }
+
+  .filter.active {
+    color: #fff !important;
+    background: var(--filter-color) !important;
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--filter-color) 30%, transparent);
+  }
+
+  .filter-note {
+    margin: -2px 0 24px;
+    color: #68708a;
+    font-size: .88rem;
+  }
+
+  .place-info-row,
+  .feature-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 12px 0 0;
+  }
+
+  .rating-chip,
+  .travel-chip,
+  .feature-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 800;
+    line-height: 1.15;
+    text-decoration: none;
+  }
+
+  .rating-chip {
+    color: #725200;
+    background: #fff6cd;
+    border: 1px solid #f1cf4a;
+  }
+
+  .rating-chip:hover {
+    background: #ffe98b;
+    transform: translateY(-1px);
+  }
+
+  .walk-chip {
+    color: #176f45;
+    background: #e9f8f0;
+    border: 1px solid #9bd8b7;
+  }
+
+  .drive-chip {
+    color: #244bcf;
+    background: #edf2ff;
+    border: 1px solid #afc0ff;
+  }
+
+  .bike-chip {
+    color: #a15a00;
+    background: #fff2e0;
+    border: 1px solid #f3c887;
+  }
+
+  .top25-banner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    background: linear-gradient(120deg, var(--navy), var(--blue));
+    color: white;
+    border-radius: var(--radius);
+    padding: 20px 26px;
+    margin: 18px 0 34px;
+    box-shadow: var(--shadow);
+  }
+
+  .top25-banner .top25-icon {
+    font-size: 2rem;
+    flex: 0 0 auto;
+  }
+
+  .top25-banner .top25-text {
+    flex: 1 1 260px;
+  }
+
+  .top25-banner .top25-text strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+  }
+
+  .top25-banner .top25-text span {
+    color: #dce7ef;
+    font-size: .92rem;
+  }
+
+  .top25-banner .btn {
+    flex: 0 0 auto;
+    background: linear-gradient(135deg, #ffd65c, #e1a83b);
+    color: var(--navy);
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(225,168,59,.35);
+  }
+
+  .top25-banner .btn:hover {
+    box-shadow: 0 16px 32px rgba(225,168,59,.45);
+  }
+
+  .feature-chip {
+    color: #4f5873;
+    background: #f3f5fa;
+    border: 1px solid #dce1ee;
+  }
+
+  .weather-chip {
+    background: #f6f3ff;
+    border-color: #ddd3ff;
+    color: #624da3;
+  }
+
+  .taxi-compact {
+    padding: 24px 28px !important;
+    min-height: 0 !important;
+    gap: 22px !important;
+  }
+
+  .taxi-compact .taxi-plusz-logo {
+    width: min(235px, 46vw) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .taxi-compact h2 {
+    margin: 4px 0 8px !important;
+  }
+
+  .taxi-compact p {
+    margin-top: 6px !important;
+    margin-bottom: 10px !important;
+  }
+
+  @media (max-width: 720px) {
+    .filterbar {
+      justify-content: flex-start !important;
+      overflow-x: auto;
+      flex-wrap: nowrap !important;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+
+    .filter {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .place-info-row,
+    .feature-row {
+      gap: 6px;
+    }
+
+    .rating-chip,
+    .travel-chip,
+    .feature-chip {
+      font-size: .73rem;
+      padding: 6px 9px;
+    }
+
+    .taxi-compact {
+      padding: 20px !important;
+    }
+
+    .taxi-compact .taxi-plusz-logo {
+      width: min(190px, 58vw) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  /* ===== shopping-fastfood-route-updates ===== */
+  .place-address {
+    margin: 8px 0 4px !important;
+    font-size: .88rem;
+    line-height: 1.4;
+  }
+  .place-address a,
+  .mini-address a {
+    color: #354160;
+    text-decoration: none;
+    font-weight: 750;
+  }
+  .place-address a:hover,
+  .mini-address a:hover {
+    color: #2d5bff;
+    text-decoration: underline;
+  }
+
+  .fastfood-filter-link {
+    --filter-color: #d96819;
+    border: 2px solid #d96819 !important;
+    color: #a84708 !important;
+    background: #fff1e8 !important;
+    text-decoration: none;
+  }
+  .fastfood-filter-link:hover {
+    color: #fff !important;
+    background: #d96819 !important;
+  }
+
+  .fastfood-block {
+    scroll-margin-top: 95px;
+    margin-top: 36px;
+    padding: 28px;
+    border-radius: 28px;
+    background: linear-gradient(145deg, #fff8f1, #ffffff);
+    border: 1px solid #f3d7c2;
+    box-shadow: 0 18px 42px rgba(108, 70, 42, .09);
+  }
+  .fastfood-head {
+    margin-bottom: 18px !important;
+  }
+  .fastfood-head h3 {
+    margin: 0 0 6px;
+    font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  }
+  .mini-place-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .mini-place-card {
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #eadfd7;
+    box-shadow: 0 10px 24px rgba(48, 38, 31, .08);
+    position: relative;
+    overflow: hidden;
+  }
+  .mini-place-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+  }
+  .mini-place-card.mini-bk::before {
+    background: linear-gradient(90deg, #d62300, #f5a623);
+  }
+  .mini-place-card.mini-bk h4 { color: #d62300; }
+  .mini-place-card.mini-mcd::before {
+    background: #ffc72c;
+  }
+  .mini-place-card.mini-mcd h4 { color: #da291c; }
+  .mini-place-card.mini-kfc::before {
+    background: #c8102e;
+    box-shadow: 0 3px 0 #1a1a1a;
+  }
+  .mini-place-card.mini-kfc h4 { color: #c8102e; }
+  .mini-place-card h4 {
+    margin: 0 0 8px;
+    font-size: 1.16rem;
+    color: #20377f;
+  }
+  .mini-place-card > p {
+    margin: 8px 0;
+  }
+  .mini-address {
+    font-size: .84rem;
+    line-height: 1.4;
+  }
+
+  .shopping-section {
+    scroll-margin-top: 90px;
+  }
+  .shopping-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .shopping-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .shopping-visual {
+    min-height: 230px;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .shopping-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .shopping-card .actions {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
+  #taxi .taxi {
+    position: relative;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 0 !important;
+    box-shadow: 0 22px 50px rgba(0,0,0,.20) !important;
+  }
+  #taxi .taxi::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.10));
+  }
+  #taxi .taxi > * {
+    position: relative;
+    z-index: 1;
+  }
+  #taxi .taxi-plusz-logo {
+    width: min(210px, 42vw) !important;
+  }
+
+  @media (max-width: 900px) {
+    .mini-place-grid,
+    .shopping-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .shopping-visual {
+      min-height: 220px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .fastfood-block {
+      padding: 18px;
+      border-radius: 22px;
+    }
+    #taxi .taxi {
+      background-position: 62% center !important;
+    }
+    #taxi .taxi-plusz-logo {
+      width: min(175px, 52vw) !important;
+    }
+  }
+
+  /* ===== v2-fixes ===== */
+.quick-grid{grid-template-columns:repeat(7,minmax(120px,1fr))!important;gap:12px!important}
+.quick{min-height:88px!important;padding:10px 8px!important}
+.quick .icon{font-size:1.6rem!important;margin-bottom:4px!important}
+.fastfood-filter-link{display:inline-flex!important;align-items:center;justify-content:center;min-height:unset!important;padding:10px 18px!important;font-size:.9rem!important}
+.mini-place-card .actions{margin-top:18px!important}
+.mini-place-card .place-info-row{margin-bottom:14px!important}
+@media(max-width:1100px){.quick-grid{grid-template-columns:repeat(4,1fr)!important}}
+@media(max-width:700px){.quick-grid{grid-template-columns:repeat(2,1fr)!important}}
+
+  /* ===== brigadpolo-crossmarketing-style ===== */
+#brigadpolo-crossmarketing {
+  padding: 72px 0;
+  background:
+    radial-gradient(circle at top right, rgba(202, 26, 39, .18), transparent 34%),
+    linear-gradient(135deg, #171717 0%, #242424 58%, #111 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+#brigadpolo-crossmarketing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+#brigadpolo-crossmarketing .bp-wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+#brigadpolo-crossmarketing .bp-heading {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+#brigadpolo-crossmarketing .bp-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #f0d7c9;
+  font-size: .84rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+#brigadpolo-crossmarketing h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+}
+#brigadpolo-crossmarketing .bp-heading p {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  line-height: 1.75;
+  font-size: 1.03rem;
+}
+#brigadpolo-crossmarketing .bp-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+  align-items: stretch;
+}
+#brigadpolo-crossmarketing .bp-card {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 26px;
+  background: rgba(255,255,255,.07);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 22px 60px rgba(0,0,0,.28);
+}
+#brigadpolo-crossmarketing .bp-shop {
+  padding: 34px;
+}
+#brigadpolo-crossmarketing .bp-logo {
+  display: block;
+  width: min(340px, 82%);
+  height: auto;
+  margin-bottom: 24px;
+}
+#brigadpolo-crossmarketing h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+#brigadpolo-crossmarketing .bp-shop p,
+#brigadpolo-crossmarketing .bp-contact p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.7;
+}
+#brigadpolo-crossmarketing .bp-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin: 22px 0 26px;
+}
+#brigadpolo-crossmarketing .bp-feature {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  color: #fff;
+  font-weight: 700;
+}
+#brigadpolo-crossmarketing .bp-feature::before {
+  content: "✓";
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #c51f2e;
+  color: #fff;
+  font-size: .8rem;
+  margin-top: 1px;
+}
+#brigadpolo-crossmarketing .bp-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+#brigadpolo-crossmarketing .bp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 19px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+#brigadpolo-crossmarketing .bp-btn:hover {
+  transform: translateY(-2px);
+}
+#brigadpolo-crossmarketing .bp-btn-primary {
+  background: #c51f2e;
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(197,31,46,.35);
+}
+#brigadpolo-crossmarketing .bp-btn-secondary {
+  background: #f1ddd0;
+  color: #171717;
+}
+#brigadpolo-crossmarketing .bp-contact {
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#brigadpolo-crossmarketing .bp-contact-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+#brigadpolo-crossmarketing .bp-contact-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+#brigadpolo-crossmarketing .bp-contact-row span:first-child {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.1);
+}
+#brigadpolo-crossmarketing .bp-contact-row a {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+#brigadpolo-crossmarketing .bp-services {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.72);
+  line-height: 1.8;
+  font-weight: 700;
+  text-align: center;
+}
+#brigadpolo-crossmarketing .bp-thanks {
+  margin-top: 12px;
+  color: rgba(255,255,255,.62);
+  text-align: center;
+}
+@media (max-width: 860px) {
+  #brigadpolo-crossmarketing {
+    padding: 56px 0;
+  }
+  #brigadpolo-crossmarketing .bp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  #brigadpolo-crossmarketing .bp-wrap {
+    width: min(100% - 28px, 1180px);
+  }
+  #brigadpolo-crossmarketing .bp-shop,
+  #brigadpolo-crossmarketing .bp-contact {
+    padding: 24px;
+  }
+  #brigadpolo-crossmarketing .bp-features {
+    grid-template-columns: 1fr;
+  }
+  #brigadpolo-crossmarketing .bp-btns {
+    flex-direction: column;
+  }
+  #brigadpolo-crossmarketing .bp-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+  /* ===== v8-layout-fixes ===== */
+/* Fő blokkok közötti kompaktabb térköz */
+section {
+  padding-top: 58px !important;
+  padding-bottom: 58px !important;
+}
+@media (max-width: 768px) {
+  section {
+    padding-top: 38px !important;
+    padding-bottom: 38px !important;
+  }
+}
+
+/* A járműve jó kezekben van blokk egyszerű szövegként */
+.plain-intro {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Taxi javaslat a kiindulási pont alatt */
+.origin-taxi-note {
+  margin: 10px 0 0;
+  color: #68708a;
+  line-height: 1.65;
+}
+
+/* Brigád Póló rész marad sötét, de nem teljes oldalszélességű szürke blokk */
+#brigadpolo-crossmarketing {
+  background: transparent !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+#brigadpolo-crossmarketing::before {
+  display: none !important;
+}
+#brigadpolo-crossmarketing .bp-wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+#brigadpolo-crossmarketing .bp-heading,
+#brigadpolo-crossmarketing .bp-shop {
+  background:
+    radial-gradient(circle at top right, rgba(202, 26, 39, .18), transparent 34%),
+    linear-gradient(135deg, #171717 0%, #242424 58%, #111 100%);
+}
+#brigadpolo-crossmarketing .bp-heading {
+  margin: 0;
+  padding: 34px 34px 0;
+  border-radius: 26px 26px 0 0;
+}
+#brigadpolo-crossmarketing .bp-shop {
+  border-radius: 0 0 26px 26px;
+  padding-top: 20px;
+  margin-bottom: 22px;
+}
+#brigadpolo-crossmarketing .bp-stack {
+  display: block;
+}
+#brigadpolo-crossmarketing .bp-contact {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  color: #252525;
+  border: 1px solid rgba(20, 30, 50, .10);
+  box-shadow: 0 18px 44px rgba(20, 30, 50, .10);
+  margin-top: 0;
+}
+#brigadpolo-crossmarketing .bp-contact h3,
+#brigadpolo-crossmarketing .bp-contact a {
+  color: #202020;
+}
+#brigadpolo-crossmarketing .bp-contact p {
+  color: #68708a;
+}
+#brigadpolo-crossmarketing .bp-contact-row span:first-child {
+  background: #f3f4f7;
+}
+#brigadpolo-crossmarketing .bp-services {
+  color: #555;
+  border-top: 0;
+  margin-top: 24px;
+}
+#brigadpolo-crossmarketing .bp-thanks {
+  color: #777;
+}
+
+/* Gyorsmenü kezelje az új elemet is */
+.quick-nav,
+.quick-links,
+.quick-menu,
+.nav-cards,
+.shortcut-grid {
+  gap: 10px !important;
+}
+
+.simple-intro{
+background:none!important;
+box-shadow:none!important;
+border:none!important;
+padding:0!important;
+margin-bottom:20px!important;
+}
+.bp-grid{
+display:grid!important;
+grid-template-columns:65% 35%!important;
+gap:22px!important;
+align-items:stretch;
+}
+@media(max-width:900px){
+.bp-grid{grid-template-columns:1fr!important;}
+}
+
+#brigadpolo-crossmarketing .bp-heading{
+display:block!important;
+padding:42px!important;
+border-radius:26px!important;
+background:
+radial-gradient(circle at top right,rgba(180,35,45,.18),transparent 35%),
+linear-gradient(135deg,#1b1b1b 0%,#242424 60%,#171717 100%)!important;
+box-shadow:0 22px 50px rgba(0,0,0,.22);
+}
+#brigadpolo-crossmarketing .bp-heading>*:last-child{margin-bottom:0!important;}
+#brigadpolo-crossmarketing .bp-features{
+display:grid!important;
+grid-template-columns:1fr 1fr;
+gap:14px 34px;
+margin:26px 0;
+padding:0;
+}
+#brigadpolo-crossmarketing .bp-btns{
+margin-top:26px!important;
+}
+#brigadpolo-crossmarketing .bp-shop,
+#brigadpolo-crossmarketing .bp-grid{
+display:none!important;
+}
+@media(max-width:768px){
+#brigadpolo-crossmarketing .bp-heading{padding:28px!important;}
+#brigadpolo-crossmarketing .bp-features{grid-template-columns:1fr!important;}
+}
+
+/* Végleges Brigád Póló blokk */
+#brigadpolo-crossmarketing{
+ width:100%!important;
+ max-width:none!important;
+ padding-left:0!important;
+ padding-right:0!important;
+}
+#brigadpolo-crossmarketing>.bp-wrap,
+#brigadpolo-crossmarketing .bp-wrap{
+ max-width:1320px!important;
+ width:calc(100% - 40px)!important;
+ margin:0 auto!important;
+ padding:0!important;
+}
+#brigadpolo-crossmarketing .bp-heading{
+ width:100%!important;
+ max-width:none!important;
+}
+#brigadpolo-crossmarketing .bp-logo,
+#brigadpolo-crossmarketing img[src*="brigad"],
+#brigadpolo-crossmarketing img{
+ width:420px!important;
+ max-width:90%!important;
+ height:auto!important;
+ display:block!important;
+ margin:22px 0 26px!important;
+}
+@media(max-width:768px){
+ #brigadpolo-crossmarketing .bp-wrap{
+   width:calc(100% - 24px)!important;
+ }
+ #brigadpolo-crossmarketing .bp-logo,
+ #brigadpolo-crossmarketing img{
+   width:280px!important;
+ }
+}
+
+  /* ===== brigad-polo-embedded-background ===== */
+#brigadpolo-crossmarketing .bp-heading {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background: #1b1b1b !important;
+}
+#brigadpolo-crossmarketing .bp-heading::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -2 !important;
+    background-image: url("images/brigadpolo-hatter.webp") !important;
+    background-size: cover !important;
+    background-position: center 42% !important;
+    background-repeat: no-repeat !important;
+    opacity: .34 !important;
+}
+#brigadpolo-crossmarketing .bp-heading::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -1 !important;
+    background:
+        linear-gradient(90deg, rgba(18,18,18,.96) 0%, rgba(18,18,18,.88) 48%, rgba(18,18,18,.67) 100%),
+        linear-gradient(180deg, rgba(18,18,18,.18), rgba(18,18,18,.48)) !important;
+}
+#brigadpolo-crossmarketing .bp-heading > * {
+    position: relative !important;
+    z-index: 1 !important;
+}
+#brigadpolo-crossmarketing .bp-kicker {
+    font-size: 18px !important;
+}
+#brigadpolo-crossmarketing .bp-heading h2 {
+    font-size: clamp(46px, 4.4vw, 74px) !important;
+    line-height: 1.03 !important;
+}
+#brigadpolo-crossmarketing .bp-heading p {
+    font-size: 22px !important;
+    line-height: 1.55 !important;
+}
+#brigadpolo-crossmarketing .bp-logo,
+#brigadpolo-crossmarketing img {
+    width: 440px !important;
+    max-width: 86% !important;
+    height: auto !important;
+}
+#brigadpolo-crossmarketing .bp-heading h4 {
+    font-size: 25px !important;
+}
+#brigadpolo-crossmarketing .bp-features {
+    font-size: 21px !important;
+}
+#brigadpolo-crossmarketing .bp-btns a {
+    font-size: 19px !important;
+    padding: 17px 30px !important;
+}
+
+.footer-contact-inline{
+margin-top:22px;
+}
+.footer-contact-inline p{
+margin:10px 0;
+}
+.footer-contact-inline a{
+color:inherit;
+text-decoration:none;
+font-weight:600;
+}
+.footer-services{
+font-size:.92rem;
+opacity:.78;
+margin-top:18px!important;
+}
+.footer-thanks{
+margin-top:20px!important;
+font-size:1.05rem;
+}
+
+.footer-center{
+text-align:center;
+margin:28px auto 0;
+max-width:900px;
+}
+.footer-brand{
+font-size:1.35rem;
+font-weight:700;
+margin-bottom:14px;
+}
+.footer-line{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:18px 30px;
+font-size:1rem;
+margin-bottom:18px;
+}
+.footer-line a{
+color:inherit;
+text-decoration:none;
+font-weight:600;
+}
+.footer-services{
+font-size:.95rem;
+opacity:.78;
+line-height:1.7;
+margin:0 auto 18px;
+}
+.footer-thanks{
+font-size:1.1rem;
+font-weight:700;
+}
+@media(max-width:700px){
+.footer-line{
+flex-direction:column;
+gap:10px;
+}
+}
+
+footer,.footer,.site-footer{
+display:flex!important;
+flex-direction:column!important;
+align-items:center!important;
+justify-content:center!important;
+text-align:center!important;
+}
+footer>*,.footer>*,.site-footer>*{
+width:100%!important;
+margin-left:auto!important;
+margin-right:auto!important;
+text-align:center!important;
+}
+footer img,.footer img,.site-footer img{
+display:block!important;
+margin:0 auto 28px!important;
+}
+footer h1,footer h2,footer h3,footer p,
+.footer h1,.footer h2,.footer h3,.footer p,
+.site-footer h1,.site-footer h2,.site-footer h3,.site-footer p{
+text-align:center!important;
+max-width:900px;
+margin-left:auto!important;
+margin-right:auto!important;
+}
+.footer-line{
+display:flex!important;
+justify-content:center!important;
+align-items:center!important;
+flex-wrap:wrap!important;
+gap:16px 28px!important;
+margin:28px auto!important;
+}
+.footer-line a{color:inherit;text-decoration:none;font-weight:600;}
+.footer-services,.footer-thanks{
+text-align:center!important;
+width:100%;
+}
+@media(max-width:700px){
+.footer-line{flex-direction:column!important;}
+}
+
+  /* ===== footer-final-centered-fix ===== */
+  footer .wrap.footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 0 !important;
+  }
+
+  footer .wrap.footer-grid > div,
+  footer .footer-contact-inline,
+  footer .footer-center {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  footer .footer-logo {
+    display: block !important;
+    margin: 0 auto 24px !important;
+  }
+
+  footer h2,
+  footer p,
+  footer .footer-services,
+  footer .footer-thanks {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  footer p {
+    max-width: 820px !important;
+  }
+
+  footer .footer-line {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 28px auto 18px !important;
+    text-align: center !important;
+  }
+
+  @media (max-width: 720px) {
+    footer .footer-line {
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+  }
+
+  /* ===== floating-action-buttons ===== */
+  .floating-actions {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+    width: max-content;
+    max-width: calc(100vw - 36px);
+  }
+
+  .floating-action {
+    min-height: 48px;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, opacity .3s ease;
+  }
+
+  .floating-action:hover {
+    transform: translateY(-3px) scale(1.045);
+    box-shadow: 0 22px 40px rgba(23, 50, 77, .26);
+  }
+
+  .floating-action:active {
+    transform: translateY(-1px) scale(.98);
+  }
+
+  .floating-action.taxi-plusz-button {
+    background: linear-gradient(135deg, #ffd65c, #f0a02c);
+    color: #1a1400;
+    animation: taxiPulse 2.8s ease-in-out infinite;
+  }
+
+  .floating-action.taxi-plusz-button:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes taxiPulse {
+    0%, 100% { box-shadow: var(--shadow), 0 0 0 0 rgba(240,160,44,.45); }
+    50%      { box-shadow: var(--shadow), 0 0 0 9px rgba(240,160,44,0); }
+  }
+
+  .floating-action.timetable-button {
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: #ffffff;
+  }
+
+  .floating-action.slide-in {
+    opacity: 0;
+    transform: translateX(30px) scale(.9);
+    pointer-events: none;
+  }
+
+  .floating-action.slide-in.show {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .floating-action.taxi-plusz-button { transition-delay: .08s; }
+  .floating-action.timetable-button { transition-delay: .16s; }
+  .floating-actions .to-top { transition-delay: .24s; }
+
+  .floating-actions .to-top {
+    position: static;
+    right: auto;
+    bottom: auto;
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: #ffffff;
+    font-size: 1.1rem;
+    align-self: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.5) rotate(-90deg);
+    transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, opacity .3s ease;
+  }
+
+  .floating-actions .to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) rotate(0deg);
+  }
+
+  .floating-actions .to-top:hover {
+    transform: scale(1.1) rotate(0deg) translateY(-2px);
+  }
+
+  @media (max-width: 560px) {
+    .floating-actions {
+      right: 8px;
+      bottom: 8px;
+      gap: 6px;
+    }
+
+    .floating-action {
+      min-height: 36px;
+      padding: 7px 11px;
+      border-radius: 11px;
+      font-size: .64rem;
+      letter-spacing: .02em;
+    }
+
+    .floating-actions .to-top {
+      width: 36px;
+      height: 36px;
+      min-height: 36px;
+      padding: 0;
+      border-radius: 50%;
+      font-size: .9rem;
+    }
+  }
+
+  @media print {
+    .floating-actions { display: none !important; }
+  }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity .65s cubic-bezier(.22,.61,.36,1), transform .65s cubic-bezier(.22,.61,.36,1);
+    }
+    .js .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal, .js .reveal.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  
+
+  /* ===== mobile hamburger nav (final override) ===== */
+  @media (max-width: 720px) {
+    .topbar-inner {
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 12px 0 !important;
+      position: relative;
+    }
+    .nav-toggle { display: flex !important; }
+    .nav {
+      order: 0 !important;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      width: auto !important;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+      background: white;
+      border: 1px solid rgba(23,50,77,.10);
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(23,50,77,.18);
+      padding: 10px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height .32s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+    }
+    .nav.nav-open {
+      max-height: 420px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav a {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+    .nav a:hover, .nav a:active { background: rgba(23,50,77,.06); }
+  }
+
+  /* ===== mobile polish: map-box & brigad-polo CTA ===== */
+  @media (max-width: 560px) {
+    .map-box {
+      padding: 28px 22px;
+      min-height: auto;
+      border-radius: 24px;
+    }
+    .map-box h2 {
+      font-size: clamp(1.5rem, 7vw, 2rem) !important;
+      line-height: 1.15;
+    }
+    .map-box p {
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+    .map-box .btn {
+      font-size: .84rem;
+      padding: 11px 16px;
+      white-space: normal;
+      text-align: center;
+    }
+    #brigadpolo-crossmarketing .bp-heading h2 {
+      font-size: clamp(1.5rem, 7vw, 2rem) !important;
+      line-height: 1.15 !important;
+    }
+    #brigadpolo-crossmarketing .bp-kicker {
+      font-size: .74rem !important;
+    }
+    #brigadpolo-crossmarketing .bp-heading p {
+      font-size: .92rem !important;
+      line-height: 1.55 !important;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="wrap topbar-inner">
+<a aria-label="Dekoros Művek" class="brand" href="#top">
+<img alt="Dekoros Művek" class="brand-logo" src="images/logo-fejlec.png"/>
+<span class="brand-label">Szegedi ajánló</span>
+</a>
+<button aria-controls="siteNav" aria-expanded="false" aria-label="Menü megnyitása" class="nav-toggle" id="navToggle" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Gyorsmenü" class="nav" id="siteNav">
+<a href="#kozlekedes"><span class="nav-icon">🚌</span>Közlekedés</a>
+<a href="#ettermek"><span class="nav-icon">🍽️</span>Éttermek</a>
+<a href="#kavezok"><span class="nav-icon">☕</span>Kávézók</a>
+<a href="#rendeles"><span class="nav-icon">🍕</span>Rendelés</a>
+<a href="#programok"><span class="nav-icon">🎉</span>Programok</a>
+<a href="#taxi"><span class="nav-icon">🚖</span>Taxi</a>
+</nav>
+</div>
+</header>
+<main id="top">
+<section class="hero">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<img alt="Dekoros Művek" class="hero-logo" src="images/logo-hero.png"/>
+<span class="eyebrow">🚗 Járműve jó kezekben van</span>
+<h1>Amíg járművén dolgozunk…</h1>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#gyorsindito">Fedezze fel Szegedet</a>
+<a class="btn btn-ghost" href="https://maps.app.goo.gl/d9XRGyN3APrGj9LC8" rel="noopener" target="_blank">📍 Indulás telephelyünktől</a>
+</div>
+<div class="wrap-scene" aria-hidden="true">
+<div class="ws-stage">
+<img alt="" class="ws-van ws-mono" src="data:image/png;base64,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"/>
+<img alt="" class="ws-roll ws-color" src="data:image/png;base64,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"/>
+<img alt="" class="ws-hand ws-color" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAABCDklEQVR42u29eZhc1Xkn/HvPXap6k9Tqbu0b6pZACEmYVewGAwZs49jCjgFvyXwxtseeeTzj+EnyfZlkvixfMp7EM04mYzvOGExsbEzsxE6MwOyIxRIgQAi0g/ZWq/eltnvveb8/7jndV0V3162t1dV9fs9TdIuqrrp17vmdd39fwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAYFJQLVwkMwt1rQSAo09N8n30axkAExGb221gCFx9shIAof4pK0W8yPuSel9pbr+BIXDlJKwgIn+C51YDWAlgOYAVABrVownAHAAWgBSANIARAF0ADgHoA3ACwD4iGhrnvW0A0khoA0Pg0iSilU9aZm4FcBWAiwFcD2AJgDZF1lLgAzgF4AiAlwG8AOBFIjo0HpmNZDYwBI5hzxJREPl/GwF8CMBNAC4A0DLenwIIYl43R15njfP8MIC9AP4VwL8BeEVfDzNbSiIbIhsYAk9EXGZuA7AFwMcBXA3AibxcqoeIXGep18oRQstxSC0BvAbgJwB+rCWzul4YIhvMajCzUFJN/3sTM/89M/fymfCY2WdmydWHZOZAfWYUw8z8j8x8Zd71C3MnDWYjeaPEvYSZ72fmbIQw/hSStlgy/3MekS1ltxsYzCriLmPmexVRo8Q9m6SdjMxe3rX9hJk3jPfdDAxmLHmZOcnM/5mZu2qAuOMheq0pZv5LZp5npLHBTLZ1hfr9cmZ+Po8M1ZSasspE1tjDzLfmOeYMDGaUyvxVZVPyOOpoOTZqoMiknV1B3nvr53PqNVGnmKyQaq3xV8ycNCq1wdkGVYC8NhH5zLwAwLcB/AbCsI3E+DHYOJAYC//YlThjEMaQdThKlHFd+j1eAPBZItqn18BsJ4OaInCEvJsB3A+gQxFFlPDemvQYh/jH1GMfgLcAdCJMmRxBmJRBAOapxxyEWVuLAVwI4FyEmVxR6IQQUeIa+OpgOQngt4joEUNig5oicIS8twJ4AMDcyMYuhbhR0h5HmFyxFcCrALYTUbbE62xRRF4H4L0ANgNYmkfmUogcqGv2AXyeiP6Bma1ohpmBwXS1eW31885IXNcvwa6M/s0IM/+SmT/DzM2TOMrsyMPKe+Q/R+O8RzMzf5aZt44Tky7WVo7a4V8yNrFBLZH3c3lOplI9u53M/KfMfN4EZC0rZMPMFCG3yHvuAmb+Q2Y+UobHPHoQ/Ul0jQwMpit5Pz2OBIorsTTZTzHzf2HmxXmkrWqMNUJoEVWzmfmPmLmnxEMp6qX+A0Piku9LVMMS0X0Q2RuOicOXtsA6QePDkTBOUKLUvZ+ZV0ff+2zEVMfJ017DzP8Q+V5+iSS+x5C4qHtgl7onZzuZKe4iE5Fk5msA/BJAg3I+xSFd1Em1C8BXiejRyAYPznYxfX5tMjNfBeAbAC7FmaGjON9Vr8vHiegnxrE18Z4Cxqq91EF6PoDrENaArwSwAGEEYQhhk4ZOAEcBbEdY052Kktms8yQLzcxLldrLRUje6OvuZeY5kVN3OrbzERFNo1FJYy7hOwfMPKDqnI1j692qsh3592XM/BfM/IpKwomLI8x8HzN/VO8lrYabVR7fAfREkWqlfl2GmX8n346uBXNB/f7bKhe6lO/+BjPPP1smwnQVBur3Dap0MxinrNSLVKoFkd+9CUj+HDN/ZLz7Z5xW4c8/iSxuMRu4m5lv0O9VS7aKPrzU7xuZ+c0i10C/7sdmU53hQ6lTqajDeWtVjENURnwO0QPgCWa+1PgfzlzwD0ZCJbII8r7DzBfV+mJGDrGlERL7RZL4M7OZxJG9dD4zb69CkYsfea9BZt4ynU21qbIFBTPPi8RIgyLIe5CZV86UTRsh8TJmfquIzafDUb3MvGI22miRtbtFaWSs1OBqVJD5kXX/L7OWxJET878VsVmDiNq8YaapMZE1Wa7KCuMealoK/8tsk8IR8n4ssoeqWVqaH8P/jl7zWUPiyEa9SKUaxlGd9aINqVDTjNyoeSQ+HTPhI5qpddNsIXFkrd4XSVkNeGogI86ur9eiD6ZsTyEzPxnzxIxu0E/MdAdCRKp8uIgcar1xX2fm+lpQ65S6P/oowQQjZl4Z6cgSlEhEWUZNt9Z+vjYrHFt5jqu46o5+zd9OxSJFQluTPWiKSPwXRXim9Tp9cbpJ4bw1tce7Nh2/LbTGkZRIYuZ/K9Jzz1JKlnIirgeSg6AYMkeFy93q+pzZ4LzaNk610GSb8kXVA6sq5InkwVrFHEbVir9GNrwb0VSCGFJYKgdfUymSrVrrOsFz9czcwMyJiTb9eOsbEQKfLZK8kuUZvMwy80lm3q8iGv35RC+h6+iHZ5okjiaLW0QUMPPNAB7BmY3Vx71/6pEDcDkRva5TLiuszudPcZiLsHFAEsAqAMsQpmmeRJhmNwjgMBGdyjcLKn1tKr10JYAdCKdJFEq51Gv6H4job85W+t84TfYtAJcBuBLAeRibQUUAPIS1zwMA9gD4NcKU2J15fx9d2zoAryOcaVU45ZYZoDCZKshlhmTPkaPDR3atYC97WmbTfWTbCbKTLU2rNrwmWlautJINSwHMASQDIs4hqNNhMwBuJaKnZ0oDBsq/qQAeBXADxgrWJ4J+/utE9LVKbkY9STCyQZYBuALARwFcDuCcAm9xEsBLCPO2nyWi3dUgcqSpwZcBfDPGmumN9CrG8qwxVbng46zrJgB3IBxrs6nIt3sNYSOHn0SmWbhElGPmzyFsr1RoPaJrcjrbeeC1ode2rkNmeIkvWSRcF5ZlgZmR83KAZN923E572fqjTRfcsByWs4xZgiiWkqUPzx4ANxHRzpmQP0150vdKANtinJp60Q8C2AggiwpN+ItKcVWx9B8B3AWgdRzpP9F84Oi1ZxDOQPpLInop+n0rRAgCkFAbuqPA2rF6/TCAC4noYKW1lsmuVd8fZl4D4GsAPg3AjVybHO9wjzyPyPrq5/sBPAjgT4noqHr/X0cOKKuQ5JV+dqR/59ZXvKNvXGYn6hI+h6OdmZkB0nYGgYgcSwB+BtJt6px//W8fE27ykiIksT5QDgO4nojernUS5xP4bwH8+5iSRCBs6nZfBQmhJdpCAP8JwD0IW/XoxdfXLGKctnrD6e/hA/gRgD9RjegsVGD+cGTtPomwL1ihtdMkvoKIXpyKDRS5RhfA/w3gKxib9higtEZ/eo31d+0E8GWEY11/jbC1Ek9iUujnjnU/fb90h0+uyMCFlMGkNggzmIRgV7DwWBxqvfmeEeHUbYCUDFEUiV9TJO6bqkO0KgTWJzMzNwF4Q9k+k9m/+rk9Su3yKyF9I+R9jyLa2gjxLJQ33CwqCfqVDXq/UqnLuvaIFLYAPA/gkklIrD8nBWAjER2q9uaJkLcFwA8B3BzZyALldybVHT/tCJEXxfgbABgZ3vv8ztSbT19MifpkEPhEcUtcQZy0QR4lTs2/4bdyllu/XErJojgSPwPgAwibI1ItklhEiHpDDPJGF/+viCinbKpKSDFf5Qw/o8jrYaytbDmbTJOL1WEwD8D3mfmPIqp6ye+vvjsRkaekGyZQ76PS7jUAx6aQvBcp0+hmfeCWeSjmr68d+c6LCv6FDE3/IDVwcuitZ9sTDY31ge/FJm/4oUwZHyz81MLep74/V3rZ/pC8Ms5e1M0Ir1WHmlXuPjibBNZf+FOTbLyo9LUAvAPgh+oLB2VuMlttsj8GcC+ARvWeDio7/jS60QIAf8zMDwBIKA1ElEHiQJHlUQB/pz4nUA89KjXasfMP1OE3FWrzpQAeU97loAIH4mTrSwX2j9p1RADSI2890+oKLElnPSYiKv4DmTxYTJnBOT1Pf98Jpb8gyFgkttU9+RCA76qDlGqNxDoUMg/hjN5CtpCWFj9V3RBEmeqnlrxfAvBHkQ1fzSQHipzAnwDwIDMn1DqUEzOW6uZ/BcA/qw1iRbQcW6lqn1ZhjKpJX/XeATOvAPAzAM0RU2RK/CqTa3AEAN3Z/s4DtpvgWKSf2AYkablSpHvdvh0/fxnAUYiiSfwZZv4rdT9qKuVSO7GuUaorx7sBuLDcuG9EQtyAMO5MFbLJioGWir8A8DEiylaKWKrA/DMIW8NkELaB+S4R7Sr0GXoDlXI45tnkTyGM7ZbSrztqLlXynjAA8kf6unoe++58siybmct+Q8uyAD8TuKsueWHuxht1M/+4+1lrJv+JiL5RSzFifVOvQ+FxKNo23g5gt9ooXOLmFuEP7gDwA3UdsoiNEp7aLAV0DJAZYJbKE0lFfH+tRv0TM99BRJkyDyZNvp8B+Fn+e43z7+jBJYloXM+47tulbelJyE1Km/ivJZCXmSVF4qqUZ7syhCiP0FICQgDMxxiySZBdNoEJQOD7bFlJK3tox5WDlr13zvr3JgFuAqgQiaMa2V8zcz8Rfa9WSKwnCl4Z86QCgK0q7GGVoT5rj9+fK6eHj7gN8sKbHW56EjoTLAsiCSEUERhFHC6axB8A8BNmTpajThMRK5vaUlqGjLayjTjOhNokTEQBEfmR5xKq1a0VlcbqNb622fNTV1VojFUvrq8hXiJF9PZq8g6rde1E2EwuB2Bk9HAsg3Ay725WTJUkoiAIGE5SpPc+v25o73PDAHmIJ2iijs7/ow5yvxZSLm2Es4Quiji1Ctk2T+cRulTV+RIAW2LbvDrOF/o6+mR68Gj6+J52DvxTAAdkOW11y85/A27dBiGsBgB2JEUvzjp4AD6obOLfJKJ0OZI4ku2kEyiCqMRVz0tFuisBXKMcTWsRjn5JAEirv/ERzoV6FsDbAJ4joiP5a6qJrnpTuxjzehdUaQHyAXSnj+yyebDz1ZHOty8V0m8QQlAAq69x2do9NHfRhsTicxlEzWAWIIqjouati3o9YTmI6iVXLgmNCMRSgtwk0m8+vVhYTndDx2Xz1bXGEeTaHv8+M/cR0ePTXRITM69HmNpnF77JOAXgAiLqjmb2lKI+I0zZvDGelBjNtDmdPXngUGbftmZ/uKcll0nPt22bCIDv+7Bsp5OSDY3JFZsGG9dd4wNYDpYEii1MPeX9/gWAskk8zne3I61rNwL4OIDbAWwo8q0GAfwLwhDIY0paOGotNwF4MeJtpkkuSB9w6fTRN/pH9jxjyeH+Ztd1nVzAoFDVBZhhC8DzvKw1b1F/w/nXWcmF7XPVWhVL4vD1MujvevTbKVtmluR85lFiV2Sdwa5rk5dOH299/+dftern3cZSEomiUy5vJKJXp3O2FjHzXcoOnexGaJI9SkTvL3VTR6Tv9QCeQOGYc5S8O/u2/TARdB9uF04iIUkgkDrdLlShHEvA9z1Q4EE0zt8955IPtzrzFrUBLIrYY1HH1sfLtYnznVJqEsVXAXwRYUFG9HOjhMtX/Thyj6IH3ksAfo+IHlef9T8Qpp/GzQg7NbT7qa7M/hfWk+0KSQJSsiRARD6eEarwQrAPDqRfv/GmPQ3nXLQcYaZcMSRmMBOIUgM7H+72jry2whcuEyrr+WUG1yVsymRz77Te+PmTVn3TZiklYiZ66H15DGGhzonpSmKBMH/3XebJBHizQl7J22N+plTk/fXpR/6uTwyePF86dYlcwBwEAcASBCYCE1gi5/vMIAR2ErY3sr7v6fubcj3H9gEUgGPzL+rY+nG5ISZFfm0XfxnAywjTRJPqc3RKYn7YiSK/C/WcHbHVAvXzEgCPqR7WFwB4fxH3KD20++nu1N5t58GtEz6DWUoQWORZSARmwVLCZ4vJce3Uq4+sHj6w43WEmW3FODQJ4aFbX99xGXkSI5agikceiEDpXCCTrruq+4nvnhNkhvcJIRAzvCTU+i4D8EtmblWCR0xHAq8p4vV7y5FCOuEBwE0Fbe5QsAop0d391H31bpC+ISMFswwwkbqlM3mIJdI+pGVb9X3PPbA0131sL0j4isTFxAdvV44ttxQSR0oOE8x8L8KKpcUYy4ayUVroTEthihwAv61U5zUx1xbpo7uH0/u2rRfJRicIAsTJhCIw+YFkkayvT+9+/NLhA9t3ISw1jE9iIQjMcJpaFtSt3JgRfgYgq+IxcQKLVM5nR/Ci3qe+tzDIDHWFXvTY2VraJPlnZm6sQK5AVQi8OsaJrZ/bU6a3HwDeg3Dodhwp4aXefvkgBk5syEjBYFlMqp3wJLNj2019zz+wPNd9bJ8iMRVJYh1iKkoSR8i7EMDDCGPCUeJSBe+hzohriOEQZGX3nh5+82kSThJBEBSlvxJAnuezcOuS6Tcev3T4wPbXlV1ebGgxMe/CWxLcvPy4A08wKl9WKQiUC8DkZeb1PnX/nCAzPFJEtpYOL12ltDFHeflpOhG4KYbTQSAsGTxVhgdab/wLI15fmkBxZhBBStmZ2rutzXLrGCUECwmgXCDZtu2m/hceWJ7rPR4lcTHq9AcViWOFmJS2IZl5PsI0xusjtnW1br4V776EWkjq8Ou2P9w7X5IFKuGaiEISk1ufTO967LLh/dtfK4rEROF9FqKx9dpPZoPk3DeSNoiBipOYwOSTLV2Zruv79c9eBbBHhcRkEXvgNgD/oBy306bLpVCndhxpmFaPkrVo9XNF4c8L19XvPX44SI+s8CRT6IgqSeyTF0i2LLup/7kfLs91j5K4WJtYx4nrJiOxDhOp6q5/AXABSs+EKlXLmVwmASmv7+QbyWRSMHPJqisRyPd9pkRDIr378UtHDu54tSh1WkBLwtXNl37EznrBkBXPyVSCt1aKHFuSBk9e3rv9ZycQdm8RRWpjn2Lmr6tIgjVdCNwY87VZ9SgXSwtutjCxPZs++nq7sEiUGyo8g8QvPLA816vVaS6WxB9UqtRkJNatar6JML+8FPKyDt+oDV5pqeTmug9fmAsYKNOmGyWxW59MvfH4ZUqdju/YEoKYGfbctmXJFRuethGAUZ0ccRkEQlquI0/uvWHglV/2IAwVFWtSfZWZvzpdEj2iKjQVkJyZiAQuZUPpm1K4VjS00YaCTCrtOo4AuOwbOkZiq6l/myYx+WV4p9+lTkfs3o8C+CyKKyDgiF0WJqwQYTT7SUqOabfF0IJkPweeEzp/yz8bNImFU5fMvvnEJcqxFZvEauPV2U2tF+Y8D0RUHUcRAUEQQNoJZI+8duHg648NAxjWZkVMM0UC+Doz3zMdSCwQZvzEQaA2ZLmYE/N1HgfeAJGomPwZJbFtN/U/NyqJgxIk8YeQV8Wkc8NVZdc3Ir6DwiphSExSZE0D2OOnh9LBSJ9UjsMuCEGjHSfKVUkkLICsSop1IpDn+8x2si5C4pjqdBhxgLCXclDdUCsBYCkBJ4n0we0rB3c/6SmzgmL+uXYY/h0zf+xsk9hWanFdDLuqXtnLw+WsHYDTMV+fFLa7QMoADKtigUJNYseym/qefWBF8zV37nXnLzsXLK2YGVtREv9E3cQsMztE5KlRqitQTB5ySMxTmRP7etJHdy2WIwMnveHeJYJQB6fuRH1zm2W1rOpKdFwmBXAuiBIoPgNq7F4K0SicRJ/MjSyMbwbGlcQBO05dXXr3E5cSsKOh47KNKJTsEa57AD/3pm3bG/3wNKxub28pQU4dZ/Y935hsXbXVXXjO+8DSibEHoiW39zFzDxE9cbZSLgXC9i5xVIiGiL1MJRIYKOzJ1kRvsurnedmcL0sp9o5DYtuxG5UkLjVOrEmcAOCrAeb/EXFaqY5lVqVzg6e39z35vZGBXz/U7nceaE74w9fblpjDINRb8oZc95E1Q7seP6/n375RP3LgxZ0IJ9bH7T4xrnbjtK066BCACtcka++0cOqSqd1P6BDTwKgZMJG9D/SnT7w1h6ypE2ZSStjJRnvgxQfXeoOnnwIJP6aZovdoHYCfMvOmsyWJhbJt46ChCIfXZDha8MAIW67YDas2dQHsV8MxGXVsDTz3wLIxx1ZJceKfqf/3XuWkiyEdwzDE8N4Xhvue+O4KyvStJrcuIYXDIzkvCFSW/0gmF+QkMZyk7ViiI/XGE5t7t/1wGMA7RcQzo4vLABrc5iXnp7PZoBr2planyalLpnY9dtlISOLeMIFDQkoZdikJD0wCkT9y6OVU0HtiWUAWKp1WOdl15jwfibq61b1PfW+DP9SzC0LIIrK1pNIufsrMKxSJrakmcE+M00bGdHjFkcCHI589kUoZegzmtJ3jzF3wjsWSUQXPpCaxsOw5oSQOQ0xcfJz4VoQ9kj+Hwm2J1OFFXvrYW2+m3nyizUnUL8p4zCxlSGw+o1+VRQAxS2RyPku7jrn36OLep+/LAjhQRDxzbNsCqFu2TjpzF/YK9lCV2KtybFnJhsTg649dNvzG428j8E+BhCfCsk8BEhJAT+bk/jdTbz5Z7yTrbBlInkoCEIFSWV+6jrOo95n7VgUjfUchhNRSJAZ/AoTJUL9k5rapTrkkZv6l2oCTFRZoe+56InqqlMTuiId2OcKc6kYUbjuKTOeBN/qf//EGkWiADAJQFc5mBtixBPm+P9R89Z1H3fnL1oLZLuLDYhRlnPG9KMgOHzi99e8cx3VX+r6URcW5SbBLAXFj6975133WQpjPHv8aVBVStutQT9+2H823EvUUBEFFK4KiHyWEQIICeMk5b9Wfc3EyufT8/cxBc/bk/vW53mNvpI/suth2k1Ygq2/7TroHCOSTlWp972c8q6F5bgmtan8N4P1ENDBVrWpJzVD9HUwer9QX+J+J6K9LrcyItLB9BmGMNE7j7/TAzq0Hsod3boBbB+n7XGmbOEpiGfiDc6+665g7f+lasLSLKEWUKDxaRR9YA/07fn6ETu/bkA5ESZU4JIR0OBDc1LZ3/nWfsQB0FNFWVV+Ll3p7576hVx/usJMNSc/zq0Li8MOIXQuUy6TBZB0XQrjs59rcRBI+LEiWONupTQzihMXkWcljC97/77sRZg3GPRg1fx4G8BuKM7LaUzd0yRRiXuTVZX6eTkF7DHHCC+GXr5v7nluanEVrt1pBloVlg7nyaxJVp/ue+2EpIabYRQn+SJ+XObFnhQerZO2VpRQ5siUNnz6396n7AgAHRbHqNLNbf857ljVuuGmHzKUyjm0RM6qy4QhMuYCZ3Hok6+qXOq7bRokG5JiYpwF5R69RCha51MKeZ39wCmETBYHiUi5vBfB/lICr+hhZgbCZeyEC64s4n5kblJ5fyoXpE+kh5TwrlL9LMnQorGrevGW1aO3YasschGVxNUlsW3aY7NF9bC+oqFLEQqwjAPAHu/eQDOYGkqkslVEGIsuCaeT0uT1Pfi9AOOom7oYjdUDOa+i4dGP9+hu3B7l01rbtKpIYBJbIeh7n/IDDclBMrw6QLImF44iBE+/vffGhfgDHUXzK5d3M/Oe69VS1CbwThTOsNLnbEScVckKBSlKp328C+G7EQTaJP2tUqqxtvmJLO7Wes9WSHoRlczVYfEayxwuaxEWFmAoie3LfUimZK7F3iZmyUrBI9aztLoXE4Xea29Bx6YX1F7xvu8yOVJXEeo2nHXGj9qIM4JHN3HXwsv6Xfp4C0IfiUy5/n5n/INItpWoE7gRwpACBtY1nY2yKXcmjTpT0/kuMxjMLLowYI/HH2kVru5bEVVWnLavkUsSJDFcA8ILMyCphEVUsgQIhia1Uz9rup+4dI3FxMc05jR2XbazfcON29tIZp8okns5Q2VrkC5e9Y7vXDLy6NRcKudidWHUZ4p8x8xdVgk9VYsSCiNJKCqPAqa2fu7WsxQk9c4KIjgH4W4y54hGfxFs6qLVdSeIqq9OllyKO75QLlQqq9CUTmHJsSWu4e23v0/f5AA5CCG2CxJbEjR2Xbaxff8MO6aUzjjN7SazVaWknkX375YUDr/3KBygIw3yx0rt13vT/Uk0Sq5LooVXj52JIVa3Lf5CZW8qwg4Gxbox/rj7bLpLEa5qv2NKB1nO22tKjapO4jFLEd/k5AViUbDpEZSkxE244kWPBNNx1bu9TIYmLcGxF1OnLNtatv2EHvHTarqJjqzY4LJkSDZw7tAO5rre3ApSNudcoYiLex8w3V4PEmsDP5pF0oguSCDvefyDG6yeTwoxwKuAwwgHTJyInVmwSt1zxsTXUes7DVkhiVNUmLr0U8Uz6AkguX98vmbNUnYAN5dhiGjl9blSdLkESb0icf8NL5GfSs1qdJlDgB7CSDU0Dz//44lzf8R0khBezjFrf4QTCCraKp1xqAu/FWLscWWAPMoA7Y7w2rkOrU71fNo5TK4/EHc1XfGwNWrRjq9okLrkUUX1nIQEg0bK8SSTrj7iW4GpkQYGZcrClNdK9tufJewMAB0qQxPM0iaWXztiznMRZz2cnWbeo79kfXOD1nzpAJAKOlaw1aiLOA/ALZm6vZMqlng6gp9gXcmTpFL8bmfk85ZCqxFS/ZxD2jOJSSNxy5cfaRWv7w/YYiaunTpdeihhec/j69rrlG5q8zAiBquSMVSEmMdK9tjfq2CqexBvrL3jfds6lZjWJBYHSOZ9t257X+8z9K/2BU10UP29aN8hbDuDfmHlppVIuo/Gtf0K8KhqdcfIZpQqX2dGBAnWI/BjA3SWSeE3zFVs6aEHUsYXqkViVIoZVTCXFiUXjeVfXo35+X0KAVE5w5a+XmbLQceJ7Sw8xtV96Yd369+3g7Eh2Nju2BIG8ACwE6nue/UGLN9CVRvEzic9F2F9tbiW6XAqMjcXcCWB3DPLo5IsvMfMaAGWfJNouIKIfKXVaIn7cTSCsblnTfPmWjjDE5EFYgqux0couRQwlLgsn0dRyw28d95kO1DlCVKuNTBgntlikutd2P/W90kNMay7bWLfhxu0ylx6xbGvWOrUITBJCJi24fS/+5BiAV8KGALKYbK3LETaEcEOLp3T+6Pm+goiyAL4XQ43WBG8E8MdUwnycAiR+EMBdGPNKx+mrdKYkHg0xiarHiUssRSRICWEn1rfc9MUTGU/uq3et6pEYTB5b0hqJkDj+DN0zHFvOqve85XJ1WsDWDJhFJiC2/FRHz1PfzwDYDwhRxEziAMDNAO7VYdVSIzoijyQ/RJh1Uih1TBPmN9UEeFkJo1xnrSgSfzJC4qLVadHavtXm0YytqpG45FLEkEAQbuLalpvuOZXz5L6GKpKYWQqPbWkNd6/tCW3iYkoRR23ieZtuWpVNzN3vWtVpAVs7JJYUwLbE8Kkr+154MAfgpG7QF1Od9gDcycz/rZwul0IRJ+oR/lkMNVrfUAvAn1Wy4kJlrTjKJv4UxibscZEkXsOtqx+xZI6qnnZp2U1928ICCComxCQEQQZsJeqvab75nlNZv7qSmFmKHKzQsfW0InFRNrFkQMxrOOdix8tmZLV6z9UOhyVysFmefnt93/afSgADOkQa488dpU7/LjN/odTwUvQO6A/9HwgLDQqRRsdtb1Id+oJKxbciJP5RGZK4o2XzHR1oWb01JLFF1SSxbWt1+nhxISZhhSR2669pvvGeU9VWp8FMHixJQ93n9j593yiJY8WJJRhgO7nsvMMS1Ona1uyWwkoS+8KFf2Lv0v4dP49YLbElcQDgfzLzdaWEl0SENFIVIe8C8CDipThqSf0NZt5YyfiWzh+NSOISQ0x3dKBttXJsTdNSRGGRVJK49eZ7TqVzwf6qqtOlliIKhOnAUjYRWa5kCQMALBHYSQ5O7J47vO/XLwAYVl6hOIPFSUnjB5l5bbHhJfFup+VooUE2hi2s7b06AA8wczMqODsmzzt9dx45i5HE7dy2elqXIgphEaRk4dZf03brFzvTfrC/qpK4lFJEhgAB2ZP7z+cg1+IHjOlcVTS1JA4At55Tbz5xTrbz4HMAZcEct1AnALBAkbg+VJTicUjkESYIf9CbAL4TkyxC6fLnA/im8qrZVSLxnRGbOBaJVQO1NYrEj0zrUkTlGRZ28prWm77YmakyiScsRZTB+N0jQ64O5nqOvZ5MJgkwInjs3hN5no9EXcPi/hcf3JzteucNEHkxnZo6RrwJwJ9rz3TMPZdvIo0Sby6AXQCWTCCt86GLl/8fIvozZQ8HlXJw6b67zPxxhAPJrYm+w7jWW3j9+/te+KcD3H3wFl84kEFQje48Z/bYuvLOo27rMt2eJ17ITQYMYZHMZZ7t/dW3FiZsWjuSCyShOs3SGMQJIUk2tO5ree9nCaMjStV4lzFnlUyf3L976NcPnQsn6bCURvrm3zpmTtg2eblsqvmau065LctXQEoRo7cWY6zF1A1E9GSc1lU0AVkspYt/FmFsOE5ngegF/D4R/UUVSfybAP4RY0klolgSy+6Dt0jhIKgyiYPAH5p31V1Hi+6xpUgcZFPb+h77zgLXprWpKpIYJGTCkoITc3c2XXy7a89dsBhhF1IbQA7A8Mihl9Opt55OAmg9mw3opr02DbAtiIIgyM2/5lMDTvOiNsRrxK/36NsANiLs2c6T8WciAlNEff45wqFe05nEpUriW33hsJwKEl9x11G3tXQS9zz27YVJW6xJVVkSJ21QJucP163c+KQ9p20TyFpOgfda6tibzRg4uUi4yUTODwx5C6+lrHOEyMHa1XbLlwPEb5CnefYdIrqnkBSmSYii28AuRZhm2RqTKOORmJRtLStEYj3G5BMA7i+RxAd7XnxoP04fuiUQLmTgo7okDobmXfWJ4lvWahLnUtt6fvWthUnbqjKJwZYQZCOA53kIggCObQOWDUkWZNjIy5A3ngOHbQ6I5i7eN//aT85XHCokiaP8uY6InpmMxFSAKFqVvh3hrNu4Tbo4otr+d0Vkv5LzYyKS+BNKEosS1OkDPS8+dIBOH7rFFy4rEletZW3g+0PzRvtOlyKJR57r/tV3FtY7oqOaNrHafCofnVT83HicSzRN2OYciQVru5sv/4gL5jkonH6sefYKgM3q3+Oq0mLyezha7vdzAF+PeMviOMf0FLevAniCmdfoOHElPNR53ulPotQ48eY72sWC9oet0R5b1fBQllmKqEJMVqLhqtab7jmV8vwDVQ0xhSekADOFnSOZDHlLXEYZkLSSnD3+ZjJz/K19iJeppRM8LgJw92ReaSp8H5kizqJ/AvBhFDe0Wr/2NIAvqTxnqISPshtf50niH0TIWZRjq+fFhw7i9KH3h+p0QFWdAOH5w83X3HmkyKmI0JMCgmzmuZ7H/veCatvEBpWBZHBdwqFMNte54INf6RTCimMP64q8wwAuUA4t5POl8CzF8A+k0sE/jTC0FLeHFSKvbUPYVuSbuqBZTWkoK3Nrgjhx3D6+o6WIShJvddhjVU88/UoRR3Onk1e13vTFU9WOExtUBoJAWS+QDvHCged/bCNsIRW3YGgVwoko45qHIiZJdJrloJLAhyJiPg6siF38ZQA7mflrqqg50E6zCpBYlyL6kVOsECnGCiAu39KBttWPhOr0NC1FFBbJIGDhJq5uufHzXTlfGhLXgirNUrDlUvb0O6syR14/DMCLUUKs98QXmLkJY7X7xRE4j8RvIxypebIImzjfLm5DmK75MjN/TnmVZQVIrEsR71bXVXxnD01i9mi6liIKy9JVTFc13/iFrlxgSDztfVkAPN/j+vrGxv7XfrVcBv7bMco59b5chLEOOFZJBI6QWE9WuEXp53YRJI5KYx/hpIdvA3hKdewrl8RehMQllyK2bL5jDVpHq5imaSmiNapON7/vnq6MkcQ1oEoTpXI+2+wvG3z5X5sBZMFSxOA+A/giMyfztV5RAkm0Z/p1ADci7GZZLIlJ/Y1UF3QlgGeZ+doKkvjHKL0Usb1l8x0dom31VtWydhqXIkq2EvVXtdx4T1fWlwcMiae7JGZiy+XMiT2N/lDPidCBKQvZwgxgHYAP5PuNRIkk0SQ+AOB9AJ6JOKuK2egiooY3AfgWM89BmRVNeaWIn4x49IprWbv5jg7RptvzTNdSRKFLEa+af+PnurKePFDvGBJPZwRSwrWtusHXH8sC6Atj7ZOb0Orn5zivwqkSLWFPALgJwN9jrO1ssbODNfnXAbitQt0u/XG6XYriSbylXdRIKaKVaLhy/k1aEgsxq8eiTG97mKRwkO06tNwfOt0FEBPLQs0zGMD1ANZrUxaoTEtYQUQ5IvocgP+AMF6lpWoxG0h7qTeUe7hMQOKSSxGbN9/RTm3tNVGKaCXqr2y5+QuncgEOJBxBhsTTVAoHkh1LNAy/tW0OgACC4hQ6OAgdyKXbwBM4tkhJ478BcC2AF5RULUUaJytKjPG7XcZybIloiGnzlnbR1v6INZ2nIgpBLCWEm7yq6aIPCS+T8cKvYDD9wES2i8zJAw3Szx0MW47F6mr5YZ0EVRECK5JwRKV+GcB1AP7fiDSWiNcYgAC8lqf3V5rEd6PUbpebt7RjtCnA9JyKSEIALJFY1L7YWbnxiJA5mtUtYKezFGawhSCROvjSAAAPkx+22pl1EYB1yplV2eM5olJ7RPRHSho/rD5cTEJkLRUHAGwtglzFkni8OHGxIaYOhOr09J2KSJAA6uasu6bXC7jXtYXJY56GkIGEZbuJ9OFXVwPoLbAfKaJG/8aozlXxzTemUttE9DIR3QZgC4AdESLrOLB+aOfXF4moS0lyWYVrGy9OXKwk7mjZvGVNJMRUdXW6+KmIIWHJSa4UTrLBDwLDlunozCKQJAF/pD+R6z0xBIDjDXjAzSrUGojqXBixkniCmYmIfoqwLOqjALZhLA6sH0cA3ElEP4zTRqQCJC43xNTevDnsdjkljq0ypyIaTF/4gWTXspsyx9/KhM6sSbUlzdcLAMwnoupWsWgpqiUqEf2MiK4BcAOA31WPuwBsIKIfKfU7qP7JN26IqbRSxLbVW89iKeL4n6icIexlDksvM2JblmHK9HVmAcJC9sS+VoTpySigRjOAZoRNJCGmgCzawUU6dkVETxLRf1ePB4hoUHcAmTr15QwS34XS4sRrmkMSPzKlUxF1nBjjti1lhCMTMoNvPTvfsWh+zpfGiTVd1WiAWFjwR/oact1HXHUAT+r7Uj+vnRIC5xNZS2RmtiMPmkryTkDiT6DEUsSQxO2PjCV7VLkU8YUfLc92H3kToBTeXdNNIPIzJ/cf9Y68viIQLghsnFjTXY22RZM/2NuJwjFh/dzFU0rgPOIERORHHmdNQkRI/BOUU4q4eUs7j8aJq1iK6Et2bLup/7kfLRk58NLzADoRDsrKIGzGf2zk4I59qZ2/mENOwmE20rcWnFm+BGc69ywJOUmIQeD3MHOTOZm13jnWKO/jCHts2SihZW3Piw8dRPehWwJyWQZ+tbpdwrEEcpk0J+e29KNxwfHEglVdXn+n4/ceOT832FNfV9dQl/F80z2yNqxgTlhEvl1/ou3mz48g7Ms9Ud8s/f+zAM43N/dMEkebx2sSAyV3u3RYBkHVGuURCbIgwTIAgcPh4WSByUIQ+FyV08OgCvsOnHAdymZSh9tu/kLOqp+7BoVb7jCAW02e3bvV6XLjxFNWigiWCBgckM0+OezD5oDBUlbn0DCongqd9XzYhJVef2erYnUh8hKADkPgd5O40qWIXK1SxLH7z6MPGJW5VkkMTzITYTsKO1G1YFllCDyxJK5EKWKHWHCGd9rAYFKtKnNi/7kxDmH9vJHAMUlcailiR/PlW9q5bfWj1lg9saGxwfibRgj4qf4VADIFJnfoJxcaAscj8YN5JC6qFLFl8x2rRVtHVUsRDWobzMyWZQFB0ImwqAcx9lmDIXB8EhcfJz6zFLEDbasfrWYpokGtS2ACSz+HcBpkHAlsCFwEiR1F4k+i6Ja1MpI7Xd1SRINatX+JiQQ4CLIIY7xxYAhcBImjpYhFklhEHVtrxAIdYrKNOm0wqisLIcDSixKYC0jgRkPg4klsj9N3urhSxMvvWDM2AcI2ji0DhDUoBJZBHBVao94QuHSbOBonLjbE1N6y+Y52tK5+pJqliAa1pUQzMwTZukY+DjKGwOWT+K4SSdzRcsWoTWzixLOevgiL22w7ibHGjjSJxg0Aw4bA5ZP4QYSliD6KL0UMkz2qXIpoUAsKNBMzg4SVBJCI+WeGwBUisQ4xeeqpYkoRO5o3b+kgVYpoVakU0WD6Q0oJYVlOEQQeMQSuDIl1iKnUqYgdYZy441EhqzcV0WA6q9CEIAjAZLUBqC8osA2BK0piLyKJoyGmYlrWdrRs/qieT0zGOz37GCylhN3QvB9Ao/JqFsqJ7jcEro5NXNZUROWdrloposH0RWJRx7442rb6uc8QuHokvhsltqwNvdOrH7GlxyZ3enaAEXbzJkGXxZC8mrfHDIGrS+JSu112NG++o92UIs4eWEIgkHKEnIamcCMxxyDwfkPg6pNYVzHFJrEuRZx3+ZYObmuPFkAYGs9E6ctgVwBWsrHLbV12SG0DnkRYA2G21i5D4KkjcWzHVqQUsaNl8x2rMVZPbNTpmbhXBFE2l2W7qdUHcG6elJ0IPQB6DIGnhsRllSKGVUwdphRxBktgWxAllpx7AoBT4IzXTx4AMGQIPDUkrkCc+KPtqp7YlCLOKPaCHduiXM7rduYtWgrAgpz05up98zIRBYbAU0Nir7x64lF1ukONcTGliDOFvxROg6Vkg++2LEsDIAgRx4G1LY6ebVBZEpdfihhORTSliDMIgefBaV6aAnBeDPtXIJzCsd0Q+OzZxLrbpSlFnOUQJCADH/XLL7ABWAVGx+rkoNcBnGRmMgQ+eyTWceIAJZcidkS6XZq1rT3zF+wIkEg2HUguW0cABGhS9ZnV4yUi8gFYhsBnn8RllCJ+tF0sWPOoKUWs1X0gGOzBXXxuN4D5+n8XOMAJwMOa0IbAZ5/EDyGME5dWinj5R9upreNR25Qi1pwAtoUQ2VzQ23DOexoBNBS496OztwA8xcwEQBoCn30SO4rEZYWYyJQi1trdZwEfbuvKd+y5bW0xpK++qT8nomEAgoiMBJ4GJI6WIkZJzEWSuEM1jzeliDWiP2cyWVm/atMKAAuV86rQYG8J4MH8DWAwfdRpHScuqRQxJLEpRZz2ujPAAgHbc9v6k8vX2wCjgPNKV7XtBrCTmYmIAkPg6UniskoRmzePliKa3OlpCiEEsZejhrVXDAGYE6N4X48TfZCIslHeGgJPXxKXVYpICzpMKeL0vMugwIOYv/Rw/fILWgAWMaSvANAH4F7lvGJD4Nog8SdQYili6J1e86jNPptSxOmjPVuWgB/IkebLPjIAoBEgLiB9tSZ2LxEdQ+i8kobAtWMT6zhx0aWIzZs/2k6t7b8ypYjTxfYlBNk016/YMGDVzVkXU3W2AAwD+Jt86WsIXBskfghjpYglhZhMKeLZh2RwvWsRu/Wdcy/+QBqAA6JCN0NL3weI6O1wW5A0BK4dBMzsKkn86YhNXEqI6VFLemTbNkzC1hRL3rBkEKlU6vT8S39jEEA7pCykOuvncwD+WklfGu8mG5z1G8zEzEI9LGa2lfRlIsopifwjADcBOI2xnNi4JB4NMVGQyxJZhsFTCCEEOexR47pr97oLVi4BczgMuLD0FQC+TUR7lPQN3qWpmeWdWqKqNafI+vN4N0a93gYwF0AbgE0AFgP4vwCsj5zQsTQ4tRn2dz329/VObmhpNuCwFNWguqaQEFJIX9K8JTtbrrl7DYB5Me6dVp1PALgQQK86xKUh8NQQVYyztjzeDVCvrwfQAmARgAsQ9kVaDOB8AKvVTS9PW5JSQgjhj/Tt7X7s79sc153v+wGbPVBd1TnhCPIkuhd84CtHAFwUOUwnNZ0QOq8+TUT3K23MH++FtlnmyhKViIJJiDofwAIAyxQ51wFYCqADwEpMPlJDqodVEulC7zTbDc1LnXmLh+TASYDsmJq4QdHnpSJv1vOH5l/7qTSAiyAlq/sQh7zPAvghM1sTkdcQuHi1V3uBWdmnExF1CYAlABYCeI8i6nIAKxR5rUkcF4wxT3P0gBAV8FkQgERi0ZpXMgMnFhvxW6U9A8j6hC2ymUx3y7WfPuLMW7QBCDWgwn86SuIvE1HAzNZkf2AIPEbSfMJIIpIUuvp5gr/rUMRcCmAjwpYoK5T6u6CANOWILZT/EFXdX5ZleFs9tVnWJxMinRo6Oe/qT77hNC++jqV0SMS6pVrD+gMiek1J38AQeHzCarIGNBaPC8Z5bR2AtUrFXakcSOcpe3UxgDkF1KF8CVhtghY64X2/7wQRGQ5XQW2WDUlXZFJDJ5qvvvt5t3X57WB2KWxSV2jBter8CBH9f8o8Kxjzt2chabVUDSLPaW/vucppdI4iqXYmtWDima36vSiPpDSJqnwWdleowsnsSE/25P5LhGWDJBsWV5K8da7IjAyfmHfV3c+5rStuB9hVyRpxQ0bHAfy21gipcKLHzCewWgztCAjU/2tG6J6/AsAlyqG0UJGYCjiRxiPqdFpHDr8iCyLmcGsIUvbX6b5Xtg5aJJf7UpgwUgXV5oY6V2RTI8fnXHX3827big+BORGTvNqUEgD+HRGdiKM6z3gCa4mrFsJn5gYAdwD4TQCXAmidRJWJ2qaIqL1iuhEVzILBIAKDiRDqxqR/qCsekr5/YmTXw8PcffAin2wmNtK3cpI3IXKp4WNNV971QjIkbzImeYEwRdZRdu8jk4WMxgPNUPKOVmwoj/Bn1OPccRZvvOQKTD+iSjF6aTThZUqEZWdd/nDfCpL+kSA9dCR97M3zs6cOWuRnFkvhAiwNeSuoNufSI8eaNt/9fGLB8g+Bua4I8nqKvN8ioi8oj7OMozrPWAJr9UNJ4C8B+EOEmUx6gzPO9DZPI6JKhgRB0GTarVa5ugF05fpOriEO3vaHejuzpw5eI3OZziA9eNgfGdhkERIy8H3btpLCduFJhmkiXVmHVS49cqxh8ydeqFu46oNFktdXGvBPAXxcv20x5J1xBNbqBzOvAfBNALdE1OKz6f094zKllCwwKVElxrySpwCczna9sw5B9qj0cjszJ/ZdKfy0yAz3n5TpofVEZLGUTATLcRy4rouMJ8HMIBIIpOSwmM3YvJUkbzY1crzpyjufSy5YeTvAyRi1vfnkfRLAbQCyGKfSaFYROELeTwL4XwjDOz5KzVwqS5IyAcSQkhkQk8QAPfVIICxS2Jc7fbSDsoPZbGp4V6Zz/3VWkPNyqcFemU11CAob8TMAx3HgOA4yviIqaNR7BTCTKVSpmsOqPumKTHr4+Jwr7nouuWDlhwFOlEDenQBuIqKeqMk3KwkcUZvvAfCtvIWqHlGZKVSZJLOclKg5ACMAEpDBAIS1J3N8zwbKjQxnh/v3eacPX8NB1gsy6ZPSSy9yLGsugyCZYdk2HNtB1pdnlAGqwl5D1LNg82ZGhk/MufKubWWQdxeAW4r1OM9IAkck75eV2hx1y1ecqKGNOmEpWAbAAKRsgvT6pcSezLHdl5CXGsqlh1/x+06stYLMsszIcDf7uYWObSeFZcELGMIScB0XvmR4fhjtIkLYWZIBIqP+nn21OSGyqeFy1eY3ALy/EuSteQJHJO/vAPgOxuK0pXwvCUgCEynxRpNI1BSAXullWyC93iCX25859uZm+Jl+Pz38utd3Yr3N/vxcJjPIfq7FcWzbcRz4EggYcB0bnmQEgeQw/AOB0Q+deb6JGWPzpoePNV1x5/PJBatuLyFUVHHy1vRGiZD3AgA7ALjqqbiSlwEZ+nYmnvE2DOB0kB5cAt/rk8BL2ZP711iZvubU0MBbQX/XBgG/0ctl05BBk23bIuG6yEmGlIBt2/AlQ4bdFzgUqiBWEVtDjdpRm3OpkWNNV935XKJ15e0leptfV+TtrBR5a5bAkQqhOoSDji9EvDrLsduCM9TgLIBDMpeZg3S/5Qf+S5ljezbZ3nBdaqj/UDDYfQFBJgLfzzBL13Ucx3Vd5HyGBMMSFgLWPqsIUfX8ZoOaJW9jXUJkU8PHGq9QanNx5NWRhKqQt5YJrKXvNwF8uQiHVXThe72BUzmk+ncMv7PrQpEb7EoP9DbbxKt8z/OY2XEcW7iui6wfZiRaQoAZKiwzRlSz1Weq5E2IXGroWGPobb4d4LoSbN7XANxKRCcrTd6aJLCq0mAAG9TixJO8YTE1ARjyB7veSu95JuF1vXOO53uNAIm6uiQCJuS8AEIQOPQtK0+vmSE1m8AMWV+XENmRoeNNV965Lblg1YeLdFhpyVtV8gK1mQtNRCSZ+fciUrUAdyWLkLwHBl76hZM9vvs827LnBGQBdsjNVE5KsCQiolDAQic+GAk7y8jbkEyIzMjQ8TlX3/1sonXFR0oMFb0O4LZqkrfmJLAOeCvH1SuRA6hQgzABYEfPk/cO0XDX9dJyyQ8CY58a5NtXYZLGyPDxSJw3WSJ5b62kt3ki1JpqqBfxqwiTwCUK99YVAF7tfvy7vU6m9waPHPi+Ia/Bu7aWTLq2yKZHTsy56u4XyiDvrqkib01JYDVSkZm5CcAhhOWAEy8us67aSfU9/5PD3Pv2Og8Om0ocg3dtFSLpWiTYD043XXnXLrdlydUAuyVK3luqrTbXqgTW13q1Iq8svLjEqXdee1t2HVjnwTFldAbjbBGBpEUiCHiw8eq7Ot2WJdcVSd4AY97mm6eSvLWoQgPA9RHbdmLVOUxpOjqyZ1sTnASz9kwZGEAN2RYWpJdhD847c6+6cyTRvGQ9mK0iJa/2Nr+fiE5NJXmBGvJCRxblfYUPn9BvlXr75Zw30t9uJ+qLLbM0mOHktYQgeGlOLl6zr3nzHRkAm5glVMFXMWrzq8rmnXLy1gyBI/ZvI8K2rZMtss6y6s4c35tMJhKUYzNGxEB5NIWFhJCUyeYG51x426v1qzZdDKABkEwk4u6RqNp8WzUyrGaaBNZzUZdi8ukFo9IXQTDk9Z/KJB0HlPNND/NZT15ixyLys6lsMGfByZbLb7Od+Us2I8yhl4CIa05OSYbVjFOhFeYjzH8uiNxgV4KC3DkZdmrV1jeogKoMALZlEQU5Ajl9cy/6wK7kyk2rACwbywGiYsn7+nQgb61JYCDsbUWYLH1SP0M4HEjZYtuUMP6r2UhcgmsLEtJHNpceTq7YtLNh3bXL7LrGa0OzbNTeRZHk3Q7gw2dTba5lAjdEzJlCtzFndOZZRFpWTb+IyBFEHHjI5bizccWGfXXL169NtK48H0ALWAIkirF3o+R9BMAniKhfZQUGZ/t71wqBNWF71E9d0PDum6BnhpC1iUGuKkgwXJ7BKjIRkWtbxIGHwM+BncTp5IoLD9efd40QibqNCMezRgtaqIh9JxVPHgDwW0SULaeH1Wwn8GmM9dKdVAq7c9vYapjbmZDZxalcwMIU0M8QKUusm/tZBLIg4fk5DqR1QsxZmJrX/p5ea8E5y6xE4zqtsSl1mSdphTSZMWYB+EsAvx++1/QhL2pFMkXCSAsA7EM4AmUSySoZEJztPvp279P3zUvWN7b4DASBZJiBuNPXTiKAWSXAqv9aIgxABIGEYwnYxBhOpdmxbS8gK1U3f8kpd/7i5sTqy0+JZH0rwqFzlCdxi4UuB8wA+BoR/Y0uY51uCQW1mAv9OIAbIos8idCmkWzXoTcGd/zL+TI7ImzHbbAsyzBl+t5jSCnBUkIyg6VEwDxClsOu69T5bB+ta17YxXVz1zSds2kvJxrXWXVNwwjDi6NiGsT5HVeK0fT0iM+3AHyOiLaVMjHBEPjdN1d3n/wKgL9GEW1jpZ/bnzuxp5sGOxenhodOArBVG2WDaWQkkbASsKx6EnYDCbvOcexGMX/ZC/achWQRNkinjoXtDCMckj62d1kibA0oSt3TesKk3k//AOB3iaiv2FlFhsATE1jXAq9B2N3PifUdIq0eETapS8E4taYrhLqvduQhxr2nrHSy+P2pJrN1tWOrG8AfEtG31J6zpoOneUYQOLqgzHwvwmFlBdToMZs4NIfMZPqaEslhSahE2HVXYEyFrcR91HOy9P75HoA/JaJD01llrnUC6/DRagC7Iyc0FbczDGbxnswn7otK6j5WK1K3Zgmcp0r/MYA/QvVHqBjMDOQT9wSA/wngr5RWZyH0Msta+lK1SODRwd3M/K8APoCx2LCBQb62pW1cbUsfQDjF4z4i6qpFqVvTBI6QGAiLG55E2GLWkNggSlrgTP/ISwC+C+BHRDRQ68StaQLnqdJLAfwAwHUInVr5N85g5hM2Kmmj974XwK8A/COArTocVEtOqhlL4DwSJwB8A8AX1FOayAImZDSTiBolrP53vv8jDeAphJPv/5WIOiP7ZcYQd0YQOEpi9fttAH4PwDWRlwSYNO3SYJoTFhMQVSMF4AiAxxC2t3mSiA7lkRYzjbgzhsARm5giRN4C4FMArgCwwHBhxqAXYbLFcYT9l19GGAY6EPUeq/1gAQhmejO0GSWV8p0SqvjhCgDtAFYCWAxgjuHBtEUGwFDkMYKwhLQTwEkAR4jo2ET3Xu1nWWuhIEPg8W8mz6YbOat0axVKxFh3Fp6tbUdpFtxoK88BYlB7+1I3NZSmP7CBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgUFR+P8BPo9fmKOy0ZcAAAAASUVORK5CYII="/>
+<img alt="" class="ws-van-red ws-color" src="data:image/png;base64,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"/><div class="ws-bolt" aria-hidden="true"><span class="ws-logo-text">LOGO</span></div>
+<svg class="ws-check" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path class="ws-check-path" d="M16 54 L40 78 L86 22" fill="none" stroke="#22c55e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+</div>
+</div>
+<aside class="hero-card">
+<h3>Kiindulási pont</h3>
+<div class="hero-facts">
+<div class="hero-fact"><span>📍</span><div><strong>Dekoros Művek Kft.</strong><small>6728 Szeged, Fonógyári út 9./B</small></div></div>
+<div class="hero-fact"><span>🚌</span><div><strong>36-os busz</strong><small>Fonógyári út megálló, Honvéd tér irányába</small></div></div>
+<div class="hero-fact"><span>🚋</span><div><strong>3F villamos</strong><small>Fonógyári úti végállomás, Tarján irányába</small></div></div>
+<div class="hero-fact"><span>ℹ️</span><div><strong>A menetidők tájékoztató jellegűek</strong><small>Az aktuális forgalom és járatindulás módosíthatja őket.</small></div></div>
+</div>
+</aside>
+</div>
+</section>
+<div class="wrap" id="gyorsindito">
+<div class="quick-grid">
+<a class="quick" href="#kozlekedes"><span class="icon">🚌</span>Közlekedés</a>
+<a class="quick" href="#ettermek"><span class="icon">🍽️</span>Éttermek</a>
+<a class="quick" href="#kavezok"><span class="icon">☕</span>Kávézók</a>
+<a class="quick" href="#rendeles"><span class="icon">🍕</span>Rendelés</a>
+<a class="quick" href="#programok"><span class="icon">🎉</span>Programok</a>
+<a class="quick" href="#shopping"><span class="icon">🛍️</span>Shopping</a><a class="quick" href="#taxi"><span class="icon">🚖</span>Taxi</a>
+</div>
+</div>
+<section id="kozlekedes">
+<div class="wrap">
+<div class="transport"><img alt="" aria-hidden="true" class="section-watermark" loading="lazy" src="images/vizjel.png"/>
+<span class="kicker" style="color:#a8dfd5">Közlekedés a belvárosba</span>
+<h2 style="font-size:clamp(2rem,4vw,3.2rem);margin:8px 0 10px;">Néhány lépés, és már úton is van</h2>
+<p style="color:rgba(255,255,255,.78);max-width:800px;">Telephelyünktől rövid sétával elérhető a busz és a villamos. Jegyet legegyszerűbben a Közlekedési Mobiljegy alkalmazásban vásárolhat.</p>
+<div class="grid">
+<article class="transport-card">
+<h3>🚌 36-os autóbusz</h3>
+<p>A <strong>Fonógyári út</strong> megállóból Kiskundorozsma, Czékus utca felől a <strong>Honvéd tér</strong> irányába közlekedik.</p>
+<a class="btn btn-soft" href="https://szkt.hu/route/36-os-buszjarat" rel="noopener" target="_blank">Menetrend</a>
+</article>
+<article class="transport-card">
+<h3>🚋 3F villamos</h3>
+<p>A <strong>Fonógyári úti végállomáson</strong> Tarján irányába kell felszállni. Kényelmes választás a belváros és a Dugonics tér felé.</p>
+<a class="btn btn-soft" href="https://szkt.hu/route/3f-villamos" rel="noopener" target="_blank">Menetrend</a>
+</article>
+<article class="transport-card">
+<h3>🎫 Mobiljegy és útvonaltervezés</h3>
+<div class="actions">
+<a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=hu.nemzetimobilfizetes.mobiljegyapp&amp;hl=hu" rel="noopener" target="_blank">Android</a>
+<a class="btn btn-soft" href="https://apps.apple.com/hu/app/k%C3%B6zleked%C3%A9si-mobiljegy/id1340923156?l=hu" rel="noopener" target="_blank">iPhone</a>
+<a class="btn btn-soft" href="https://www.menetrendek.hu/" rel="noopener" target="_blank">Menetrendek.hu</a>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section id="taxi">
+<div class="wrap">
+<div class="taxi taxi-compact" style="background-image:linear-gradient(90deg, rgba(255,208,2,.96) 0%, rgba(255,208,2,.88) 45%, rgba(255,208,2,.45) 75%, rgba(0,0,0,.32) 100%), url('images/taxi-hatter.jpg');">
+<div>
+<img alt="Taxi Plusz" class="taxi-plusz-logo" loading="lazy" src="images/taxiplusz-logo.png"/>
+<span class="kicker">Gyors és kényelmes</span>
+<p>Ha nem szeretne tömegközlekedéssel utazni, vagy gyorsan eljutna a kiválasztott helyre, jó szívvel ajánljuk partnerünket.</p>
+</div>
+<div class="taxi-actions">
+<a class="btn btn-dark" href="tel:+3662555555">📞 +36 62 555 555</a>
+<a class="btn btn-primary" href="https://www.taxiplusz.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+</div>
+</div>
+</div>
+</section>
+<section id="ettermek">
+<div class="wrap">
+<div class="section-head">
+<div>
+<span class="kicker">Megéhezett?</span>
+<h2>Éttermek, cukrászdák és kávézók</h2>
+<p>Gyors ebéd, nemzetközi ízek, hagyományos magyar fogások, halételek vagy egy kellemes kávé és desszert. Válogasson kedve szerint.</p>
+</div>
+</div>
+<span class="anchor-offset" id="kavezok"></span><div aria-label="Étterem szűrők" class="filterbar"><button class="filter active" data-filter="all">✨ Összes</button><button class="filter" data-filter="near">🚶 Gyalog is közel</button><button class="filter" data-filter="international">🌍 Nemzetközi</button><button class="filter" data-filter="hungarian">🍲 Magyaros</button><button class="filter" data-filter="fish">🐟 Halételek</button><button class="filter" data-filter="dessert">🍰 Desszert</button><button class="filter" data-filter="coffee">☕ Kávézás</button><a class="filter fastfood-filter-link" href="#gyorsettermek">🍔 Gyorséttermek</a></div><p class="filter-note">A Google értékelések gombra kattintva mindig az aktuális pontszámokat és vendégvéleményeket tekintheti meg.</p>
+<div class="grid" id="restaurantGrid">
+<article class="card place-card" data-tags="near hungarian">
+<div class="card-visual food"><span class="card-icon">🥙</span></div>
+<div class="card-body">
+<h3>Ambrózia Gyorsétterem</h3>
+<p class="subtitle">Gyors ebéd a közelben</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6728+Szeged%2C+Keresked%C5%91+k%C3%B6z+1%2FB." rel="noopener" target="_blank">📍 6728 Szeged, Kereskedő köz 1/B.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: 2–3 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 1–2 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: 1 perc</span></div><div class="feature-row"><span class="feature-chip">💰 Kedvező árú</span><span class="feature-chip">⚡ Gyors ebéd</span></div>
+<p>Praktikus választás, amikor egy kiadós, gyors ebédre vágyik, de nem szeretne messzire menni.</p>
+<div class="meta"><span>Napi menü</span><span>Gyors megoldás</span></div>
+<div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6728+Szeged%2C+Keresked%C5%91+k%C3%B6z+1%2FB." rel="noopener" target="_blank">🗺️ Útvonal</a></div>
+</div>
+</article>
+<article class="card place-card" data-tags="near hungarian">
+<div class="card-visual food"><span class="card-icon">🍲</span></div>
+<div class="card-body">
+<h3>Manna Büfé és Étterem</h3>
+<p class="subtitle">Házias ízek és változatos napi menü</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6728+Szeged%2C+Keresked%C5%91+k%C3%B6z+4." rel="noopener" target="_blank">📍 6728 Szeged, Kereskedő köz 4.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: 3–4 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 1–2 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: 1 perc</span></div><div class="feature-row"><span class="feature-chip">🍲 Házias</span><span class="feature-chip">💰 Kedvező árú</span></div>
+<p>Kiadós, házias fogások, amikor gyorsan enne valami finomat a telephely közvetlen közelében.</p>
+<div class="meta"><span>Napi menü</span><span>Házias</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6728+Szeged%2C+Keresked%C5%91+k%C3%B6z+4." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://mannaetteremszeged.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/mannabufeetterem/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="international">
+<div class="card-visual food"><span class="card-icon">🧆</span></div>
+<div class="card-body">
+<h3>Trója</h3>
+<p class="subtitle">Arab és mediterrán ízek</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%B6lcsey+utca+4." rel="noopener" target="_blank">📍 6720 Szeged, Kölcsey utca 4.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">⭐ Ajánljuk</span><span class="feature-chip">🥗 Vegetáriánus opció</span></div>
+<p>Fűszeres fogások, gyrosok és bőséges tálak a belvárosban. Gyors ebédhez és vacsorához egyaránt jó választás.</p>
+<div class="meta"><span>Mediterrán</span><span>Belváros</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%B6lcsey+utca+4." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://trojaszeged.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/trojaszeged" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="international">
+<div class="card-visual food"><span class="card-icon">🍺</span></div>
+<div class="card-body">
+<h3>John Bull Pub</h3>
+<p class="subtitle">Klasszikus pubhangulat, minőségi fogások</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%A1r%C3%A1sz+utca+17." rel="noopener" target="_blank">📍 6720 Szeged, Kárász utca 17.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">⭐ Ajánljuk</span><span class="feature-chip">🍺 Pubhangulat</span></div>
+<p>Hangulatos belvárosi hely magyar és nemzetközi ételekkel. Nyugodt ebédhez vagy vacsorához is remek választás.</p>
+<div class="meta"><span>Pub</span><span>Belváros</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%A1r%C3%A1sz+utca+17." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.johnbullpubszeged.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/johnbullszeged" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="dessert">
+<div class="card-visual food"><span class="card-icon">🥞</span></div>
+<div class="card-body">
+<h3>Élmény Palacsintázó és Nasizó</h3>
+<p class="subtitle">Egy kis édesség mindig belefér</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Csongr%C3%A1di+sug%C3%A1r%C3%BAt+102." rel="noopener" target="_blank">📍 6724 Szeged, Csongrádi sugárút 102.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 45 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 10–12 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">👨‍👩‍👧 Családbarát</span><span class="feature-chip">🍰 Desszert</span></div>
+<p>Édes vagy sós, klasszikus vagy különleges palacsinta. Jó választás desszerthez vagy egy könnyedebb étkezéshez.</p>
+<div class="meta"><span>Palacsinta</span><span>Desszert</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Csongr%C3%A1di+sug%C3%A1r%C3%BAt+102." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/elmenypalacsinta" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="international">
+<div class="card-visual food"><span class="card-icon">🌮</span></div>
+<div class="card-body">
+<h3>Gringos Cantina</h3>
+<p class="subtitle">Mexikói hangulat és tex-mex ízek</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Pet%C5%91fi+S%C3%A1ndor+sug%C3%A1r%C3%BAt+81%2FA." rel="noopener" target="_blank">📍 6725 Szeged, Petőfi Sándor sugárút 81/A.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 45 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 10–13 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">🌮 Tex-mex</span><span class="feature-chip">👨‍👩‍👧 Családbarát</span></div>
+<p>Burrito, taco, quesadilla és más karakteres fogások. Baráti ebédhez vagy vacsorához is kiváló választás.</p>
+<div class="meta"><span>Mexikói</span><span>Tex-mex</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Pet%C5%91fi+S%C3%A1ndor+sug%C3%A1r%C3%BAt+81%2FA." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://gringos.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/gringos.cantina.szeged/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="hungarian fish">
+<div class="card-visual food"><span class="card-icon">🍛</span></div>
+<div class="card-body">
+<h3>Jobb Mint Otthon Kisvendéglő és Halászcsárda</h3>
+<p class="subtitle">Házias magyar konyha</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6722+Szeged%2C+Lencs%C3%A9s+4." rel="noopener" target="_blank">📍 6722 Szeged, Lencsés 4.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 30 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 7–10 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 10 perc</span></div><div class="feature-row"><span class="feature-chip">🍲 Magyaros</span><span class="feature-chip">🐟 Halételek</span></div>
+<p>Hagyományos ízek, bőséges adagok és halételek kellemes környezetben, a telephelytől nem messze.</p>
+<div class="meta"><span>Magyaros</span><span>Halételek</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6722+Szeged%2C+Lencs%C3%A9s+4." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://jobbmintotthonkisvendeglo.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/jobbmintotthonkisvendeglo/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="hungarian fish">
+<div class="card-visual food"><span class="card-icon">🐟</span></div>
+<div class="card-body">
+<h3>Kiskőrössy Halászcsárda</h3>
+<p class="subtitle">Szegedi halászlé a Tisza partján</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6727+Szeged%2C+Fels%C5%91+Tisza-part+336." rel="noopener" target="_blank">📍 6727 Szeged, Felső Tisza-part 336.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">⭐ Ajánljuk</span><span class="feature-chip">🌅 Tisza-part</span></div>
+<p>Tradicionális halételek és különleges Tisza-parti hangulat. Jó választás, ha helyi specialitást kóstolna.</p>
+<div class="meta"><span>Halászlé</span><span>Tisza part</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6727+Szeged%2C+Fels%C5%91+Tisza-part+336." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://kiskorossyhalaszcsarda.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/kiskorossyhalaszcsarda/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="hungarian">
+<div class="card-visual food"><span class="card-icon">🍷</span></div>
+<div class="card-body">
+<h3>Vendéglő a Régi Hídhoz</h3>
+<p class="subtitle">Tradicionális magyar ízek a belvárosban</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Oskola+utca+4." rel="noopener" target="_blank">📍 6720 Szeged, Oskola utca 4.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 11–14 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">🏆 Vendégeink kedvence</span><span class="feature-chip">🍲 Magyaros</span></div>
+<p>Klasszikus magyar fogások, igényes környezet és belvárosi elhelyezkedés egy kellemes ebédhez vagy vacsorához.</p>
+<div class="meta"><span>Magyaros</span><span>Belváros</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Oskola+utca+4." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.regihid.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/RegihidVendeglo/" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card place-card" data-tags="dessert coffee">
+<div class="card-visual cafe"><span class="card-icon">☕</span></div>
+<div class="card-body">
+<h3>REÖK Kézműves Cukrászda és Kávéház</h3>
+<p class="subtitle">Elegáns környezet, különleges desszertek</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Magyar+Ede+t%C3%A9r+2." rel="noopener" target="_blank">📍 6720 Szeged, Magyar Ede tér 2.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 11–14 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">⭐ Ajánljuk</span><span class="feature-chip">🍰 Kézműves desszert</span></div>
+<p>Belvárosi cukrászda a látványos REÖK palota mellett. Kellemes választás egy nyugodt kávézáshoz.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Magyar+Ede+t%C3%A9r+2." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://reokcukraszda.hu/uzlet/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/reokcukraszda/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article><article class="card place-card" data-tags="dessert coffee">
+<div class="card-visual cafe"><span class="card-icon">🍨</span></div>
+<div class="card-body">
+<h3>A Cappella Cukrászda és Kávéház</h3>
+<p class="subtitle">Klasszikus finomságok a Kárász utcán</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%A1r%C3%A1sz+utca+6." rel="noopener" target="_blank">📍 6720 Szeged, Kárász utca 6.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 11–14 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">☕ Kávézás</span><span class="feature-chip">🍰 Desszert</span></div>
+<p>Sütemények, fagylaltok és kávék Szeged sétálóutcájának szívében.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+K%C3%A1r%C3%A1sz+utca+6." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://cukraszdaac.eu/wp/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/p/A-Cappella-Cukr%C3%A1szda-%C3%A9s-K%C3%A1v%C3%A9h%C3%A1z-100063610148329/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article><article class="card place-card" data-tags="dessert coffee">
+<div class="card-visual cafe"><span class="card-icon">🍰</span></div>
+<div class="card-body">
+<h3>Stop Cukrászda</h3>
+<p class="subtitle">Barátságos hangulat, hagyományos ízek</p><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6722+Szeged%2C+Gutenberg+utca+7." rel="noopener" target="_blank">📍 6722 Szeged, Gutenberg utca 7.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip">💰 Kedvező árú</span><span class="feature-chip">🍦 Fagylalt</span></div>
+<p>Kellemes megálló süteményhez, fagylalthoz vagy egy rövid pihenőhöz.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6722+Szeged%2C+Gutenberg+utca+7." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="http://www.stop-cukraszda.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/profile.php?id=100054616352310&amp;locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article></div><div class="fastfood-block" id="gyorsettermek"><div class="section-head fastfood-head"><h3>Felkapott gyorséttermek</h3><p>Ismerős ízek, gyors kiszolgálás és egyszerű választás, amikor nem szeretne sokáig keresgélni.</p></div><div class="mini-place-grid"><article class="mini-place-card mini-bk"><h4>Burger King</h4><p class="mini-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6723+Szeged%2C+Makkosh%C3%A1zi+k%C3%B6r%C3%BAt+2." rel="noopener" target="_blank">📍 6723 Szeged, Makkosházi körút 2.</a></p><p>Grillezett hamburgerek és klasszikus gyorséttermi kínálat.</p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 8–10 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6723+Szeged%2C+Makkosh%C3%A1zi+k%C3%B6r%C3%BAt+2." rel="noopener" target="_blank">🗺️ Útvonal</a></div></article><article class="mini-place-card mini-mcd"><h4>McDonald's</h4><p class="mini-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+R%C3%B3kusi+k%C3%B6r%C3%BAt+27." rel="noopener" target="_blank">📍 6724 Szeged, Rókusi körút 27.</a></p><p>Gyors és jól ismert választás a reggelitől a hamburgerekig.</p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 45 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 7–9 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+R%C3%B3kusi+k%C3%B6r%C3%BAt+27." rel="noopener" target="_blank">🗺️ Útvonal</a></div></article><article class="mini-place-card mini-kfc"><h4>KFC</h4><p class="mini-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6729+Szeged%2C+Szabadkai+%C3%BAt+7." rel="noopener" target="_blank">📍 6729 Szeged, Szabadkai út 7.</a></p><p>Ropogós csirkés ételek és menük a Napfény Parknál.</p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 60 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 9–12 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 25 perc</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6729+Szeged%2C+Szabadkai+%C3%BAt+7." rel="noopener" target="_blank">🗺️ Útvonal</a></div></article></div></div>
+</div>
+</section>
+<section id="rendeles">
+<div class="wrap">
+<div class="section-head">
+<div>
+<span class="kicker">Maradna a telephelyen?</span>
+<h2>Rendeljen közvetlenül hozzánk</h2>
+<p>Kiszállítási cím: <strong>Dekoros Művek Kft., 6728 Szeged, Fonógyári út 9./B</strong></p>
+</div>
+</div>
+<div class="grid">
+<article class="card">
+<div class="card-visual delivery"><span class="card-icon">🍕</span><span class="badge">Kiszállítás</span></div>
+<div class="card-body">
+<h3>La Rosa</h3>
+<p>Pizzák és más népszerű fogások, kényelmes, online rendelési lehetőséggel.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.la-rosa.hu/" rel="noopener" target="_blank">📦 Rendelés</a>
+<a class="btn btn-soft" href="https://share.google/FzCf9pnQYRhgFLiss" rel="noopener" target="_blank">🗺️ Térkép</a>
+<a class="btn btn-soft" href="https://www.instagram.com/larosa.szeged/" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual delivery"><span class="card-icon">🍕</span><span class="badge">Kiszállítás</span></div>
+<div class="card-body">
+<h3>Rustica Pizza</h3>
+<p>Változatos fogások, amikor egyszerűen a telephelyre rendelne.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://rusticapizza.hu/" rel="noopener" target="_blank">📦 Rendelés</a>
+<a class="btn btn-soft" href="https://share.google/HVXT7hFUjdCFVsJcn" rel="noopener" target="_blank">🗺️ Térkép</a>
+<a class="btn btn-soft" href="https://www.facebook.com/rusticapizzaszeged/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual delivery"><span class="card-icon">🥗</span><span class="badge">Kiszállítás</span></div>
+<div class="card-body">
+<h3>Zöldlevelecske</h3>
+<p>Könnyedebb, friss ételek és rendelési lehetőség azoknak, akik más jellegű ebédet választanának.</p>
+<div class="actions">
+<a class="btn btn-dark" href="https://zoldlevelecske.hu/" rel="noopener" target="_blank">📦 Rendelés</a>
+<a class="btn btn-soft" href="https://share.google/16jVuBNfrRLEiCULO" rel="noopener" target="_blank">🗺️ Térkép</a>
+<a class="btn btn-soft" href="https://www.facebook.com/zoldlevelecske/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section id="programok">
+<div class="wrap">
+<div class="section-head">
+<div>
+<span class="kicker">Fedezze fel Szegedet</span>
+<h2>Programok, ha maradt egy kis ideje</h2>
+<p>Rövid belvárosi séta, pihenés, mozi vagy családi program. Válasszon az idejéhez és hangulatához illően.</p>
+</div>
+</div>
+<div class="top25-banner">
+<span class="top25-icon">🏛️</span>
+<div class="top25-text">
+<strong>Több városi látnivalóra kíváncsi?</strong>
+<span>Egy külső cikkben összegyűjtve: a legjobb szegedi és környékbeli látnivalók.</span>
+</div>
+<a class="btn" href="https://trekhunt.com/hu/article/szeged-latnivalok/" rel="noopener" target="_blank">🏙️ TOP 25 LÁTNIVALÓ</a>
+</div>
+<div class="grid">
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">⛪</span></div>
+<div class="card-body">
+<h3>Dóm tér és Fogadalmi templom</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+D%C3%B3m+t%C3%A9r." rel="noopener" target="_blank">📍 6720 Szeged, Dóm tér.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">☀️ Jó időben ajánljuk</span><span class="feature-chip weather-chip">⭐ Szegedi klasszikus</span></div>
+<p>Szeged egyik legjellegzetesebb látnivalója. Rövid belvárosi sétába is könnyen beilleszthető.</p>
+<div class="meta"><span>Séta</span><span>Fotóhely</span><span>1–2 óra</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+D%C3%B3m+t%C3%A9r." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="http://www.fogadalmitemplom.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🌳</span></div>
+<div class="card-body">
+<h3>Széchenyi tér</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Sz%C3%A9chenyi+t%C3%A9r." rel="noopener" target="_blank">📍 6720 Szeged, Széchenyi tér.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 11–14 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">☀️ Jó időben ajánljuk</span><span class="feature-chip weather-chip">🌳 Kellemes séta</span></div>
+<p>Tágas, zöld belvárosi tér szép épületekkel. Kellemes kiindulópont egy rövid városi sétához.</p>
+<div class="meta"><span>Séta</span><span>Ingyenes</span></div>
+<div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Sz%C3%A9chenyi+t%C3%A9r." rel="noopener" target="_blank">🗺️ Útvonal</a></div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🧖</span></div>
+<div class="card-body">
+<h3>Anna Fürdő</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Tisza+Lajos+k%C3%B6r%C3%BAt+24." rel="noopener" target="_blank">📍 6720 Szeged, Tisza Lajos körút 24.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 45 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 10–13 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">🌧️ Esős időben is jó</span><span class="feature-chip weather-chip">♨️ Pihenés</span></div>
+<p>Pihenés és feltöltődés történelmi környezetben. Rosszabb időben is jó program lehet.</p>
+<div class="meta"><span>Pihenés</span><span>Rossz időben is</span><span>2–3 óra</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Tisza+Lajos+k%C3%B6r%C3%BAt+24." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.szegedsport.hu/letesitmenyek/anna-furdo" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/annafurdo/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🦁</span></div>
+<div class="card-body">
+<h3>Szegedi Vadaspark</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Sz%C3%A9l+utca+90." rel="noopener" target="_blank">📍 6725 Szeged, Szél utca 90.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 50 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 10–13 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">☀️ Jó időben ajánljuk</span><span class="feature-chip weather-chip">👨‍👩‍👧 Családbarát</span></div>
+<p>Néhány órás családi program, kicsiknek és nagyoknak is!</p>
+<div class="meta"><span>Gyerekekkel</span><span>Jó időben</span><span>Fél nap</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Sz%C3%A9l+utca+90." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://zooszeged.hu/hu/kezdolap/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/szegedivadaspark/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🎬</span></div>
+<div class="card-body">
+<h3>Cinema City Szeged</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Kossuth+Lajos+sug%C3%A1r%C3%BAt+119." rel="noopener" target="_blank">📍 6724 Szeged, Kossuth Lajos sugárút 119.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 35 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 8–10 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 15 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">🌧️ Esős időben is jó</span><span class="feature-chip weather-chip">🎬 Kikapcsolódás</span></div>
+<p>Egy jó film kényelmes választás, ha több órát töltene Szegeden vagy az időjárás nem kedvez a sétának.</p>
+<div class="meta"><span>Rossz időben is</span><span>2–3 óra</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Kossuth+Lajos+sug%C3%A1r%C3%BAt+119." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.cinemacity.hu/cinemas/szeged/1126#/buy-tickets-by-cinema?in-cinema=1126&amp;view-mode=list" rel="noopener" target="_blank">🎟️ Műsor</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🌿</span></div>
+<div class="card-body">
+<h3>SZTE Füvészkert</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6726+Szeged%2C+L%C3%B6v%C3%B6lde+%C3%BAt+42." rel="noopener" target="_blank">📍 6726 Szeged, Lövölde út 42.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 11–14 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">☀️ Jó időben ajánljuk</span><span class="feature-chip weather-chip">🌿 Nyugodt program</span></div>
+<p>Nyugodt, zöld környezet és különleges növények. Jó időben kellemes, lassabb program.</p>
+<div class="meta"><span>Természet</span><span>Jó időben</span><span>2–3 óra</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6726+Szeged%2C+L%C3%B6v%C3%B6lde+%C3%BAt+42." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://www.fuveszkert.u-szeged.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+<a class="btn btn-soft" href="https://www.facebook.com/szte.fuveszkert/?locale=hu_HU" rel="noopener" target="_blank">Facebook</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🧺</span></div>
+<div class="card-body">
+<h3>Újszegedi Erzsébet-liget</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6726+Szeged%2C+Liszt+Ferenc+s%C3%A9t%C3%A1ny." rel="noopener" target="_blank">📍 6726 Szeged, Liszt Ferenc sétány.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 60 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 13–16 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 25 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">☀️ Jó időben ajánljuk</span><span class="feature-chip weather-chip">🧺 Piknikezésre jó</span></div>
+<p>Szeged legnagyobb zöldterülete a Tisza-parton. Igaz, kicsit messzebb esik, de a tágas gyepen akár piknikezni is lehet séta vagy pihenés közben.</p>
+<div class="meta"><span>Piknik</span><span>Jó időben</span><span>Fél nap</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6726+Szeged%2C+Liszt+Ferenc+s%C3%A9t%C3%A1ny." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://szegedtourism.hu/hu/erzsebet-liget/" rel="noopener" target="_blank">🌐 Weboldal</a>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-visual fun"><span class="card-icon">🏛️</span></div>
+<div class="card-body">
+<h3>Móra Ferenc Múzeum</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Roosevelt+t%C3%A9r+1-3." rel="noopener" target="_blank">📍 6720 Szeged, Roosevelt tér 1–3.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 55 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 12–15 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><div class="feature-row"><span class="feature-chip weather-chip">🌧️ Esős időben is jó</span><span class="feature-chip weather-chip">🏛️ Kultúra</span></div>
+<p>Régészeti, néprajzi és képzőművészeti kiállítások egy patinás épületben, a Tisza-parton. Rosszabb időben is tartalmas program.</p>
+<div class="meta"><span>Kiállítás</span><span>Rossz időben is</span><span>2–3 óra</span></div>
+<div class="actions">
+<a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6720+Szeged%2C+Roosevelt+t%C3%A9r+1-3." rel="noopener" target="_blank">🗺️ Útvonal</a>
+<a class="btn btn-soft" href="https://moramuzeum.hu/" rel="noopener" target="_blank">🌐 Weboldal</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section><section class="shopping-section" id="shopping"><div class="wrap"><div class="section-head">
+<div>
+<span class="kicker">Vásárlás és nézelődés</span>
+<h2>Vásárolna vagy körülnézne?</h2>
+<p>Három népszerű szegedi bevásárlóközpont, ahol üzletek, étkezési lehetőségek és egyéb programok is várják.</p>
+</div>
+</div><div class="grid shopping-grid"><article class="card shopping-card"><div class="card-visual shopping-visual" style="background-image:url('images/shopping-01.jpg')"></div><div class="card-body"><h3>Napfény Park</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Szabadkai+%C3%BAt+7." rel="noopener" target="_blank">📍 6725 Szeged, Szabadkai út 7.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 45 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 9–12 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 20 perc</span></div><p>Könnyen megközelíthető bevásárlópark műszaki-, divat-, drogéria- és vendéglátó-egységekkel.</p><div class="feature-row"><span class="feature-chip">🛍️ Üzletek</span><span class="feature-chip">💻 Műszaki</span><span class="feature-chip">🍔 Étkezés</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6725+Szeged%2C+Szabadkai+%C3%BAt+7." rel="noopener" target="_blank">🗺️ Útvonal</a><a class="btn btn-soft" href="https://napfenypark.hu/" rel="noopener" target="_blank">🌐 Weboldal</a><a class="btn btn-soft" href="https://www.facebook.com/szegednapfenypark" rel="noopener" target="_blank">📘 Facebook</a></div></div></article><article class="card shopping-card"><div class="card-visual shopping-visual" style="background-image:url('images/shopping-02.jpg')"></div><div class="card-body"><h3>Szeged Plaza</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Kossuth+Lajos+sug%C3%A1r%C3%BAt+119." rel="noopener" target="_blank">📍 6724 Szeged, Kossuth Lajos sugárút 119.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 35 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 8–10 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 15 perc</span></div><p>Üzletek, éttermek és Cinema City egy helyen, így rossz időben is kényelmes program.</p><div class="feature-row"><span class="feature-chip">🛍️ Üzletek</span><span class="feature-chip">🎬 Mozi</span><span class="feature-chip">🍽️ Étkezés</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Kossuth+Lajos+sug%C3%A1r%C3%BAt+119." rel="noopener" target="_blank">🗺️ Útvonal</a><a class="btn btn-soft" href="https://szegedplaza.hu/" rel="noopener" target="_blank">🌐 Weboldal</a><a class="btn btn-soft" href="https://www.facebook.com/SzegedPlaza/" rel="noopener" target="_blank">📘 Facebook</a></div></div></article><article class="card shopping-card"><div class="card-visual shopping-visual" style="background-image:url('images/shopping-03.jpg')"></div><div class="card-body"><h3>Árkád Szeged</h3><p class="place-address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Londoni+k%C3%B6r%C3%BAt+3." rel="noopener" target="_blank">📍 6724 Szeged, Londoni körút 3.</a></p><div class="place-info-row"><span class="travel-chip walk-chip">🚶 Gyalog: kb. 40 perc</span><span class="travel-chip drive-chip">🚗 Autóval: 9–12 perc</span><span class="travel-chip bike-chip">🚲 Kerékpárral: kb. 15 perc</span></div><p>Nagy, belvárosi bevásárlóközpont sokféle divat üzlettel, kávézóval és étkezési lehetőséggel.</p><div class="feature-row"><span class="feature-chip">👗 Divat</span><span class="feature-chip">☕ Kávézás</span><span class="feature-chip">🍽️ Étkezés</span></div><div class="actions"><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=6724+Szeged%2C+Londoni+k%C3%B6r%C3%BAt+3." rel="noopener" target="_blank">🗺️ Útvonal</a><a class="btn btn-soft" href="https://www.arkadszeged.hu/" rel="noopener" target="_blank">🌐 Weboldal</a><a class="btn btn-soft" href="https://www.facebook.com/arkadszeged" rel="noopener" target="_blank">📘 Facebook</a></div></div></article></div></div></section>
+
+<section id="terkep">
+<div class="wrap">
+<div class="map-box">
+<div>
+<div style="font-size:3.2rem">🗺️</div>
+<h2 style="font-size:clamp(2rem,4vw,3rem);margin:10px 0;">Induljon telephelyünktől</h2>
+<p>Az egyes kártyákon található Útvonal gomb a kiválasztott helyet nyitja meg. Az alábbi gombbal a Dekoros Művek címéről indíthat általános Google Térkép útvonaltervezést.</p>
+<a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;origin=6728+Szeged,+Fonógyári+út+9%2FB" rel="noopener" target="_blank">📍 Útvonaltervezés megnyitása</a>
+</div>
+</div>
+<div class="notice">
+          Az oldalon szereplő ajánlások tájékoztató jellegűek. A nyitvatartás, a kínálat, a jegyárak, a menetidők és az elérhetőségek időközben változhatnak. Indulás vagy rendelés előtt érdemes ellenőrizni az aktuális információkat az adott szolgáltató weboldalán vagy közösségi oldalán.
+        </div>
+</div>
+</section>
+</main>
+<section id="brigadpolo-crossmarketing">
+<div class="bp-wrap">
+<div class="bp-heading">
+<span class="bp-kicker">TUDTA, HOGY EZT IS RÁNK BÍZHATJA?</span>
+<h2>Munkaruhák, amelyek méltón képviselik vállalkozását.</h2>
+<p>Legyen szó pólóról, pulóverről, mellényről vagy kabátról, a Brigád Póló webshopban minőségi munkaruhákat készítünk cége arculatára szabva.</p>
+<img alt="Brigád Póló logó" class="bp-logo" loading="lazy" src="images/brigadpolo-logo.png"/>
+<h4>Miért érdemes bennünket választani?</h4><div class="bp-features">
+<div class="bp-feature">Ingyenes látványterv és logó készítés</div>
+<div class="bp-feature">Rejtett költségek nélkül</div>
+<div class="bp-feature">Minőségi beszállítók termékei</div>
+<div class="bp-feature">Tartós emblémázás modern technológiával</div>
+</div>
+<div class="bp-btns">
+<a class="bp-btn bp-btn-primary" href="https://www.brigadpolo.hu/" rel="noopener" target="_blank">Megnézem a webshopot</a>
+</div>
+</div>
+</div>
+</section><footer>
+<div class="wrap footer-grid">
+<div>
+<img alt="Dekoros Művek" class="footer-logo" loading="lazy" src="images/logo-hero.png"/>
+<h2>Jó kikapcsolódást kívánunk Szegeden!</h2>
+<p>Bízunk benne, hogy ajánlónk segítségével kellemesen telik az itt töltött ideje. Mi pedig addig azon dolgozunk, hogy járművét a lehető legnagyobb gondossággal készítsük el.</p>
+</div>
+
+</div>
+<div class="footer-contact-inline">
+<div class="footer-center">
+<div class="footer-line"><span><a href="https://maps.app.goo.gl/d9XRGyN3APrGj9LC8">📍 6728 Szeged, Fonógyári út 9/B</a></span><span>🌐 <a href="https://www.dekorosmuvek.hu">www.dekorosmuvek.hu</a></span><span>☎️ +36 62 998 333</span><span>📱 +36 30 095 4499</span></div>
+<div class="footer-services">
+    Járműdekoráció • Világítótáblák • Öntapadós matricák • Molinók • Cégtáblák • Munkaruha emblémázás
+  </div>
+<div class="footer-thanks">
+    Köszönjük, hogy bennünket választott!
+  </div>
+</div>
+</div>
+</footer>
+<div class="floating-actions" aria-label="Gyorsműveletek">
+<a class="floating-action taxi-plusz-button slide-in" href="tel:+3662555555" aria-label="Taxi Plusz hívása">Taxi Plusz</a>
+<a class="floating-action timetable-button slide-in" href="#kozlekedes" aria-label="Ugrás a menetrendekhez">Menetrendek</a>
+<button aria-label="Fel a lap tetejére" class="floating-action to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+<script>
+    const filters = document.querySelectorAll('.filter');
+    const places = document.querySelectorAll('#restaurantGrid .place-card');
+
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        filters.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        places.forEach(card => {
+          const tags = (card.dataset.tags || '').split(' ');
+          const show = filter === 'all' || tags.includes(filter);
+          card.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+
+    const toTop = document.querySelector('.to-top');
+
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+    if (navToggle && siteNav) {
+      const closeNav = () => {
+        siteNav.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      };
+      navToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+      document.addEventListener('click', (e) => {
+        if (!siteNav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
+      });
+    }
+    const slideInButtons = document.querySelectorAll('.floating-action.slide-in');
+    window.addEventListener('scroll', () => {
+      const past = window.scrollY > 700;
+      toTop.classList.toggle('show', past);
+      slideInButtons.forEach(btn => btn.classList.toggle('show', past));
+    });
+    </script>
+<script>
+    document.documentElement.classList.add('js');
+    const revealItems = document.querySelectorAll('.card, .quick, .transport-card, .taxi, .map-box, .top25-banner');
+    revealItems.forEach(item => item.classList.add('reveal'));
+    const staggerGroups = document.querySelectorAll('.grid, .quick-grid');
+    staggerGroups.forEach(group => {
+      [...group.children].forEach((child, i) => {
+        child.style.transitionDelay = (i % 3) * 0.09 + 's';
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
